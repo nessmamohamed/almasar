@@ -74,8 +74,8 @@ a:hover{
 .quiz{
    
     width: 380px;
-    margin-top: 550px;
-    margin-left: 20px;
+    margin-top: 600px;
+    margin-left: 0px;
     transform: skewY(20deg) !important;
 }
 

@@ -20,7 +20,7 @@ class quests extends React.Component{
 
     onClickSign = (id, e) => {
          e.preventDefault()
-        window.location.href= `/masarquests/${id}?id=${id}`
+        window.location.href= `/quests/${id}?id=${id}`
     }
 
   

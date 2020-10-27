@@ -138,7 +138,7 @@ class Quest extends React.Component{
 
         
 
-        if(form){
+      
             if(!Cname || !name || !phone) {
                 this.setState({
                     err: 'please enter all feilds !',
@@ -167,7 +167,6 @@ class Quest extends React.Component{
                     .then(res => {
                         this.setState({
                             success: true,
-                            form: false,
                             err: ''
                         })
 
@@ -193,14 +192,8 @@ class Quest extends React.Component{
                 }
                 
             }
-        }else{
-            this.setState({
-                form: true, 
-                err: false,
-                success:false
-            })
         }
-    }
+    
 
    
 
@@ -226,6 +219,14 @@ class Quest extends React.Component{
                         </div>
 
                            <div>
+
+                               <div className='mb-5'>
+                               <form >
+                         <input onChange={this.onChange} name='Cname'  className="form-control mx-auto  mb-2 mt-5"  aria-describedby="emailHelp" placeholder="Company name" style={{width: '70%'}} />
+                         <input onChange={this.onChange}  name='name'  className="form-control mx-auto mb-2"  aria-describedby="emailHelp" placeholder="name" style={{width: '70%'}} />
+                         <input onChange={this.onChange} name='phone'  className="form-control mx-auto mb-2 "  aria-describedby="emailHelp" placeholder="number ex(+20 1111112222)" style={{width: '70%'}} />
+                         </form>
+                               </div>
 
                               {this.props.quest ?
                                this.props.quest.questions.map((question, indx= i++) => (
@@ -329,11 +330,7 @@ class Quest extends React.Component{
                     {this.state.success ? 'thanks for your answers !' : ''}
                    </div>
 
-                         <form style = {{ display: this.state.form ? 'block' : 'none',opacity : this.state.form ? '1' : '0' , transition: 'opacity .5s ease'}}>
-                         <input onChange={this.onChange} name='Cname'  className="form-control mx-auto  mb-2 mt-5"  aria-describedby="emailHelp" placeholder="Company name" style={{width: '70%'}} />
-                         <input onChange={this.onChange}  name='name'  className="form-control mx-auto mb-2"  aria-describedby="emailHelp" placeholder="name" style={{width: '70%'}} />
-                         <input onChange={this.onChange} name='phone'  className="form-control mx-auto mb-2 "  aria-describedby="emailHelp" placeholder="number ex(+20 1111112222)" style={{width: '70%'}} />
-                         </form>
+                         
 
                    <div className='mx-auto text-center '>
                    <button className='btn btn-danger ' onClick = {this.onClickSign2}>Done !</button>

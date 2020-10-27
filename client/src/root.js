@@ -41,9 +41,9 @@ export default class root extends React.Component{
                 <Router>
                     <Route exact path='/' component={App}/>
                     <Route  path='/addQuest' component={AddQuest}/>
-                    <Route  path='/quests/:id' component={Quest}/>
+                    <Route  path='/masarquests/:id' component={Quest}/>
                     <Route  path='/dashboard' component={Dashboard}/>
-                    <Route  path='/quest' component={Quests}/>
+                    <Route  path='/masarquests' component={Quests}/>
                     
                 </Router>
             </div>

@@ -63,7 +63,7 @@ class Nav extends React.Component{
     
     
        <li className='navbar-item my-auto py-3'>
-                       <a className='nabar-link mr-3' href='/quest' style={{color: 'black'}}>
+                       <a className='nabar-link mr-3' href='/masarquests' style={{color: 'black'}}>
                            <Translate content='quests'/>
                        </a>
                    </li>

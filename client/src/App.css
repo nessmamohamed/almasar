@@ -121,7 +121,7 @@ a:hover{
 
 
 #quest-card{
-    
+
     border: 40px solid #4bc14b;
     border-radius: 40px;
 }
@@ -172,7 +172,7 @@ a:hover{
 }
 
 .questcard{
-    background: linear-gradient(180deg, #81ef9a, #28a74542);
+    background: linear-gradient(180deg,#6ed886,rgb(40 167 69 / 35%));
     border: white !important;
     color: white;
 }

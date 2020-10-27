@@ -26,7 +26,7 @@ class intro_en extends React.Component{
 
                <div>
                <button className='btn btn-light mt-3 btn-lg px-5 shadow' > 
-               <a href='/quest' style={{color: '#d2303f'}}>Start the questionnaire</a>
+               <a href='/masarquests' style={{color: '#d2303f'}}>Start the questionnaire</a>
                </button>
 
                </div>

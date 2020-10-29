@@ -621,7 +621,7 @@ answer === 'extremely dissatisfied' ?
 }
 
 const mapStateToProps = (state) => ({
-       quest : state.quests.quest
+       quest : state.quests.quests
 })
 
 export default connect(mapStateToProps, {getQuest, addResult})(Quest)

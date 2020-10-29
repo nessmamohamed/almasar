@@ -31,7 +31,12 @@ const express = require('express'),
 
       router.get('/quest/:id', (req, res) => {
         Quest.findById(req.params.id)
-        .then(quest => res.json(quest))
+        .then(quest => {
+        res.json(quest)
+         
+        })
+
+       
       })
 
       router.delete('/quest/:id' , (req, res) => {

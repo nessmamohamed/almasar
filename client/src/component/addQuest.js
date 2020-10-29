@@ -3,7 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faPlus, faMinus, faSmile, 
-faGrinBeam,  faMeh , faFrown} from '@fortawesome/free-solid-svg-icons'
+faGrinAlt,  faMeh , faFrown} from '@fortawesome/free-solid-svg-icons'
 
 import Fade from 'react-reveal/Fade';
 
@@ -343,11 +343,11 @@ class addQuests extends React.Component{
         <button   onClick={this.onClickMinus_ar.bind(this, answer)} className='btn btn-light mr-2 py-0'><FontAwesomeIcon icon={faMinus}  color='red'/></button>
         {answer === 'emoji' ? 
         <div>
-          <FontAwesomeIcon icon={faGrinBeam} className='my-auto mr-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faSmile} className='my-auto mr-2' color='lightgreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faMeh} className='my-auto mr-2 ' color='yellow' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faFrown} className='my-auto mr-2' color='orange' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon= {faFrown} className='my-auto mr-2' color='red' style={{fontSize: '25px'}}/>
+            <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
         </div> 
          : 
          <h6  className='my-auto '> {answer}</h6>}
@@ -384,11 +384,11 @@ class addQuests extends React.Component{
         <button   onClick={this.onClickMinus.bind(this, answer)} className='btn btn-light mr-2 py-0'><FontAwesomeIcon icon={faMinus}  color='red'/></button>
         {answer === 'emoji' ? 
         <div>
-          <FontAwesomeIcon icon={faGrinBeam} className='my-auto mr-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faSmile} className='my-auto mr-2' color='lightgreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faMeh} className='my-auto mr-2 ' color='yellow' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faFrown} className='my-auto mr-2' color='orange' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon= {faFrown} className='my-auto mr-2' color='red' style={{fontSize: '25px'}}/>
+          <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
         </div> 
          : 
          <h6  className='my-auto '> {answer}</h6>}
@@ -453,11 +453,11 @@ class addQuests extends React.Component{
     <li >
         {answer === 'emoji' ? 
         <div>
-          <FontAwesomeIcon icon={faGrinBeam} className='my-auto mr-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faSmile} className='my-auto mr-2' color='lightgreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faMeh} className='my-auto mr-2 ' color='yellow' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faFrown} className='my-auto mr-2' color='orange' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon= {faFrown} className='my-auto mr-2' color='red' style={{fontSize: '25px'}}/>
+          <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
         </div> 
          : 
          <h6  className='my-auto '> {answer}</h6>}
@@ -467,11 +467,11 @@ question.answers_ar.map(answer => (
     <li>
         {answer === 'emoji' ? 
         <div>
-          <FontAwesomeIcon icon={faGrinBeam} className='my-auto mr-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faSmile} className='my-auto mr-2' color='lightgreen' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faMeh} className='my-auto mr-2 ' color='yellow' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon={faFrown} className='my-auto mr-2' color='orange' style={{fontSize: '25px'}}/>
-          <FontAwesomeIcon icon= {faFrown} className='my-auto mr-2' color='red' style={{fontSize: '25px'}}/>
+         <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
+            <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
         </div> 
          : 
          <h6  className='my-auto '> {answer}</h6>}

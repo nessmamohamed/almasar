@@ -7,11 +7,12 @@ import {addResult} from '../actions/results'
 
 import Nav from './nav'
 
+import Translate from 'react-translate-component';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {  faSmile, 
-    faGrinBeam,  faMeh , faFrown} from '@fortawesome/free-solid-svg-icons'
+    faGrinAlt,  faMeh , faFrown} from '@fortawesome/free-solid-svg-icons'
 
 
 class Quest extends React.Component{
@@ -33,17 +34,17 @@ class Quest extends React.Component{
 
    
 
-    onChange = (e) => {
+    onChange = ( e) => {
         this.setState({
             [e.target.name] : e.target.value
         })
       }
 
-      onChange2 = (e) => {
+      onChange2 = (indx, e) => {
 
         let nam = e.target.name
        
-       
+       this.setState({[indx]: e.target.value})
         
         if(this.state.results.length === 0){
             this.setState({
@@ -88,6 +89,8 @@ class Quest extends React.Component{
                     [indx]: answer
                 })
 
+                console.log(indx)
+
                 if(this.state.results.length === 0){
                     this.setState({
                         results: [...this.state.results, {[quest] : answer}]
@@ -123,7 +126,7 @@ class Quest extends React.Component{
             }
       
 
-    onClickSign2 =(   e) => {
+    onClickSign2 =(e) => {
         e.preventDefault()
 
         this.setState({
@@ -163,7 +166,7 @@ class Quest extends React.Component{
                         success:false
                     })
                 }else{
-                    axios.post('/quser' , ({quser}))
+                    axios.post('http://localhost:5000/quser' , ({quser}))
                     .then(res => {
                         this.setState({
                             success: true,
@@ -220,11 +223,12 @@ class Quest extends React.Component{
 
                            <div>
 
-                               <div className='mb-5'>
+                               <div className='mb-5' >
                                <form >
-                         <input onChange={this.onChange} name='Cname'  className="form-control mx-auto  mb-2 mt-5"  aria-describedby="emailHelp" placeholder="Company name" style={{width: '70%'}} />
-                         <input onChange={this.onChange}  name='name'  className="form-control mx-auto mb-2"  aria-describedby="emailHelp" placeholder="name" style={{width: '70%'}} />
-                         <input onChange={this.onChange} name='phone'  className="form-control mx-auto mb-2 "  aria-describedby="emailHelp" placeholder="number ex(+20 1111112222)" style={{width: '70%'}} />
+                         <input onChange={this.onChange} name='Cname' className="form-control mx-auto  mb-2 mt-5"  aria-describedby="emailHelp" placeholder={localStorage.getItem('language') === 'en' ? 'company name' : 'اسم الشركة'} style={{width: '70%', textAlign: localStorage.getItem('language') === 'en' ? 'left' : "right"}} />
+                         
+                         <input onChange={this.onChange}  name='name'  className="form-control mx-auto mb-2"  aria-describedby="emailHelp" placeholder={localStorage.getItem('language') === 'en' ? 'email' :"الايميل"} style={{width: '70%', textAlign: localStorage.getItem('language') === 'en' ? 'left' : "right"}} />
+                         <input onChange={this.onChange} name='phone'  className="form-control mx-auto mb-2 "  aria-describedby="emailHelp" placeholder={localStorage.getItem('language') === 'en' ? 'phone number' : "رقم الهاتف"} style={{width: '70%', textAlign: localStorage.getItem('language') === 'en' ? 'left' : "right"}} />
                          </form>
                                </div>
 
@@ -250,26 +254,42 @@ class Quest extends React.Component{
                                       question.answers.map((answer, key = 0) => (
                                           <div >
                                               {answer === 'emoji' ? 
-        <div> - <button onClick={this.onClickFace.bind(this, question.quest, 'so satisfied', indx)}    className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', borderColor: this.state[indx] === 'so satisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faGrinBeam} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
+        <div> - <button onClick={this.onClickFace.bind(this, question.quest, 'extremely satisfied', indx)}    className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', borderColor: this.state[indx] === 'extremely satisfied' ? 'red' : 'white'}}> 
+        <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
     </button>
     <button onClick={this.onClickFace.bind(this, question.quest, 'satisfied', indx)}  className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'satisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='lightgreen' style={{fontSize: '25px'}}/>
+        <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
     </button>
-    <button onClick={this.onClickFace.bind(this, question.quest, 'good', indx)}  className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'good' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='yellow' style={{fontSize: '25px'}}/>
+    <button onClick={this.onClickFace.bind(this, question.quest, 'neutral', indx)}  className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'neutral' ? 'red' : 'white'}}> 
+        <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
     </button>   
-    <button onClick={this.onClickFace.bind(this, question.quest, 'not satisfied', indx)}  className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', borderColor: this.state[indx] === 'not satisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='orange' style={{fontSize: '25px'}}/>
+    <button onClick={this.onClickFace.bind(this, question.quest, 'dissatisfied', indx)}  className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', borderColor: this.state[indx] === 'dissatisfied' ? 'red' : 'white'}}> 
+        <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
     </button>  
-    <button onClick={this.onClickFace.bind(this, question.quest, 'bad', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'bad' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='red' style={{fontSize: '25px'}}/>
+    <button onClick={this.onClickFace.bind(this, question.quest, 'extremely dissatisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely dissatisfied' ? 'red' : 'white'}}> 
+        <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
     </button> 
+    <div className="form-group my-4" style ={{display: this.state[indx] === 'extremely dissatisfied' ? 'block' : 'none'}} >
+                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow "  rows="2" placeholder='write the reason ...'></textarea>
+                                    </div>
         </div> 
          : 
 
+answer === 'extremely dissatisfied' ? 
+<div>
 <div className="form-check ">
-<input onChange = {this.onChange2} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+<label className="form-check-label" htmlFor="exampleRadios1">
+  {answer}
+</label>
+<div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied')  ? 'block' : 'none'}} >
+                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow"  rows="2" placeholder='write the reason ...'></textarea>
+                                    </div>
+
+</div>
+</div>:
+<div className="form-check ">
+<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
 <label className="form-check-label" htmlFor="exampleRadios1">
   {answer}
 </label>
@@ -282,32 +302,50 @@ class Quest extends React.Component{
                                       question.answers_ar.map((answer, key = 0) => (
                                         <div className='text-right mr-3'>
                                         {answer === 'emoji' ? 
-  <div>   <button onClick={this.onClickFace.bind(this, question.quest, 'so satisfied', indx)}    className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'so satisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faGrinBeam} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '25px'}}/>
+  <div>   <button onClick={this.onClickFace.bind(this, question.quest, 'extremely satisfied', indx)}    className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely satisfied' ? 'red' : 'white'}}> 
+  <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-2 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
 </button>
-<button onClick={this.onClickFace.bind(this, question.quest, 'satisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', border: 'white',  borderColor: this.state[indx] === 'satisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='lightgreen' style={{fontSize: '25px'}}/>
+<button onClick={this.onClickFace.bind(this, question.quest, 'satisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'satisfied' ? 'red' : 'white'}}> 
+  <FontAwesomeIcon icon={faSmile} className='my-auto mx-2 ' color='limegreen' style={{fontSize: '40px'}}/>
 </button>
-<button onClick={this.onClickFace.bind(this, question.quest, 'good', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', border: 'white',  borderColor: this.state[indx] === 'good' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='yellow' style={{fontSize: '25px'}}/>
+<button onClick={this.onClickFace.bind(this, question.quest, 'neutral', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', borderColor: this.state[indx] === 'neutral' ? 'red' : 'white'}}> 
+  <FontAwesomeIcon icon={faMeh} className='my-auto mx-2 ' color='#eae303' style={{fontSize: '40px'}}/>
 </button>   
-<button onClick={this.onClickFace.bind(this, question.quest, 'not satisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', border: 'white',  borderColor: this.state[indx] === 'not satisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='orange' style={{fontSize: '25px'}}/>
+<button onClick={this.onClickFace.bind(this, question.quest, 'dissatisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',   borderColor: this.state[indx] === 'dissatisfied' ? 'red' : 'white'}}> 
+  <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#ffc107' style={{fontSize: '40px'}}/>
 </button>  
-<button onClick={this.onClickFace.bind(this, question.quest, 'bad', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white', border: 'white',  borderColor: this.state[indx] === 'bad' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='red' style={{fontSize: '25px'}}/>
+<button onClick={this.onClickFace.bind(this, question.quest, 'extremely dissatisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely dissatisfied' ? 'red' : 'white'}}> 
+  <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
 </button> 
-   -  </div> 
+   - 
+   <div className="form-group my-4" style ={{display: this.state[indx] === 'extremely dissatisfied' ? 'block' : 'none'}} >
+                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow text-right"  rows="2" placeholder='... اذكر السبب '></textarea>
+                                    </div> </div> 
    : 
 
-<div className="form-check ">
-<label className="form-check-label mr-4" htmlFor="exampleRadios1">
-{answer}
-</label>
+  answer === 'غير راضي جدا' ? 
+   <div>
+   <div className="form-check " >
+   
+   <label className="form-check-label mr-4" htmlFor="exampleRadios1">
+     {answer}
+   </label>
 
-<input className="form-check-input shadow" onChange = {this.onChange2} type="radio" id={question.quest_ar} name={question.quest}  value={answer} />
+   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+   <div className="form-group my-4" style = {{display: this.state[indx] ===  'غير راضي' || this.state[indx] ===   'غير راضي جدا' ? 'block' : 'none'}}>
+                                         <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow text-right" placeholder='... اذكر السبب'  rows="2"></textarea>
+                                       </div>
+   
+   </div>
+   </div>:
+   <div className="form-check ">
 
-</div>}
+   <label className="form-check-label mr-4" htmlFor="exampleRadios1">
+     {answer}
+   </label>
+
+   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+   </div>}
                                    
 
                                     </div> 
@@ -333,7 +371,9 @@ class Quest extends React.Component{
                          
 
                    <div className='mx-auto text-center '>
-                   <button className='btn btn-danger ' onClick = {this.onClickSign2}>Done !</button>
+                   <button className='btn btn-danger ' onClick = {this.onClickSign2}>
+                       <Translate content='done'/>
+                   </button>
 
                    </div>
 

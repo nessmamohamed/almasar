@@ -1,4 +1,5 @@
 export default{
     sandq: '  بدء الاستبيان',
-    quests: 'الاستبيانات'
+    quests: 'الاستبيانات',
+    done: 'انتهي '
 }

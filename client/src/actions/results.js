@@ -5,7 +5,7 @@ import {GET_RESULTS, ADD_RESULT} from './types'
 
 
 export const addResult = (results) => (dispatch) => {
-    axios.post('http://localhost:5000/results', results )
+    axios.post('/results', results )
     .then(res => dispatch({
         type: ADD_RESULT, 
         payload: res.data
@@ -15,7 +15,7 @@ export const addResult = (results) => (dispatch) => {
 
 export const getResults = () => dispatch => {
    
-    axios.get('http://localhost:5000/results')
+    axios.get('/results')
     .then(res => 
         dispatch({
         type: GET_RESULTS,

@@ -166,7 +166,7 @@ class Quest extends React.Component{
                         success:false
                     })
                 }else{
-                    axios.post('http://localhost:5000/quser' , ({quser}))
+                    axios.post('/quser' , ({quser}))
                     .then(res => {
                         this.setState({
                             success: true,

@@ -25,8 +25,8 @@ class intro extends React.Component{
               </Fade>
 
                <div>
-               <button className='btn btn-light mt-3 btn-lg px-5 shadow' > 
-               <a href='quests/5f9a7830dc58e05a08d39e3d?id=5f9a7830dc58e05a08d39e3d' style={{color: '#d2303f'}}>بدء الاستبيان</a>
+               <button className='btn btn-light mt-3 btn-lg px-5 shadow questButton' style={{background: '#d62528', border: '#d62528'}}> 
+               <a href='quests/5f9a7830dc58e05a08d39e3d?id=5f9a7830dc58e05a08d39e3d' style={{color: 'white'}}>بدء الاستبيان</a>
                </button>
 
                </div>

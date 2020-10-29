@@ -211,7 +211,7 @@ class Quest extends React.Component{
            <div>
                <Nav/>
                 <div className='py-5 mx-auto' style={{maxWidth: '1000px'}}>
-                <div className='card mt-5' id='quest-card' style={{boxShadow:' 0 .5rem 1rem GREEN'}}>
+                <div className='card mt-5' id='quest-card' style={{boxShadow:' 0 .5rem 1rem #149071'}}>
                     <div className='card-body shadow ' style={{ minHeight: '800px'}}>
                        
                     <div className='text-center my-4'>

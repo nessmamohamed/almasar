@@ -26,7 +26,7 @@ class intro extends React.Component{
 
                <div>
                <button className='btn btn-light mt-3 btn-lg px-5 shadow' > 
-               <a href='quests/5f950c7531fa494ce49127cb?id=5f950c7531fa494ce49127cb' style={{color: '#d2303f'}}>بدء الاستبيان</a>
+               <a href='quests/5f9a7830dc58e05a08d39e3d?id=5f9a7830dc58e05a08d39e3d' style={{color: '#d2303f'}}>بدء الاستبيان</a>
                </button>
 
                </div>

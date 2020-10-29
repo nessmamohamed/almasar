@@ -228,7 +228,7 @@ class Quest extends React.Component{
                          <input onChange={this.onChange} name='Cname' className="form-control mx-auto  mb-2 mt-5"  aria-describedby="emailHelp" placeholder={localStorage.getItem('language') === 'en' ? 'company name' : 'اسم الشركة'} style={{width: '70%', textAlign: localStorage.getItem('language') === 'en' ? 'left' : "right"}} />
                          
                          <input onChange={this.onChange}  name='name'  className="form-control mx-auto mb-2"  aria-describedby="emailHelp" placeholder={localStorage.getItem('language') === 'en' ? 'email' :"الايميل"} style={{width: '70%', textAlign: localStorage.getItem('language') === 'en' ? 'left' : "right"}} />
-                         <div className='d-flex mx-auto' style={{width: '50%'}}>
+                         <div className='d-flex mx-auto' style={{width: '70%'}}>
                               <div className='' style={{width: '30%'}} >
   
   <select className="custom-select" id="countryCode" name='countryCode' onChange={this.onChange} >

@@ -87,8 +87,8 @@ class App extends React.Component {
           </div>
 
           <div className='footer'>
-            <p>all copyrights reserved to 2020 @
-            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '15px'}}/>
+            <p>All copyrights reserved 2020 
+            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '14px'}}/>
 
             <a href='https://twitter.com/ConsultingMsar'>
             <img src="https://img.icons8.com/fluent/48/000000/twitter.png" width='30' className='mr-2'/>

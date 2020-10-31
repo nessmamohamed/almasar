@@ -623,18 +623,49 @@ answer === 'extremely dissatisfied' ?
                     {this.state.err}
                    </div>
 
-                   <div className="alert alert-success mb-0 text-center" role="alert" style={{background: 'none', border: 'none'}}>
-                    {this.state.success ? 'thanks for your answers !' : ''}
-                   </div>
-
-                         
-
                    <div className='mx-auto text-center '>
                    <button className='btn btn-danger ' onClick = {this.onClickSign2}>
                        <Translate content='done'/>
                    </button>
 
                    </div>
+
+                   <div className="alert alert-success mb-0 text-center" role="alert" style={{background: 'none', border: 'none'}}>
+                    {this.state.success ? 
+                    <div>
+                        {localStorage.getItem('language') !== 'en' ? 
+                        <div>
+                            <h6>نشكر لكم المشاركة في هذا الاستبيان و سوف نأخذ بعين الاعتبار جميع الملاحظات و الاقتراحات في تحسين خدماتنا مستقبلا </h6>
+                        <h6>اذا كان لديك اي استفسار او ملاحظات بخصوص هذا الاستبيان ، الرجاء التواصل علي العنوان التالي :</h6>
+                        
+                        <p>مسار للاستشارات الادارية</p>
+                        <p>المملكة العربية السعودية</p>
+
+                     
+
+
+                        <p>+966 552101067</p>
+                        <p>info@elmsarsa.com</p>
+                        <p>@ConsultingMsar</p>
+                        </div>: <div>
+                        <h6> We thank you for participating in this survey, and we will take into consideration all comments and suggestions in improving our services in the future </h6>                     
+                        <h6> If you have any questions or comments regarding this questionnaire, please contact the following address: </h6>
+                       
+                         <p> Masar Management Consulting </p>                       
+                         <p>Saudi arabia</p>
+                    
+
+                        <p>+966 552101067</p>
+                        <p>info@elmsarsa.com</p>
+                        <p>@ConsultingMsar</p>
+                        
+                        </div>}
+                    </div> : ''}
+                   </div>
+
+                         
+
+                  
 
                     </div>
                     

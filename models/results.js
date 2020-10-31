@@ -2,12 +2,21 @@ const mongoose = require('mongoose')
 
 const resultsSchema = new mongoose.Schema({
      results : {
-          type: Array,
+          type: Object,
           required: true
+     },
+     reasons: {
+         type: Array,
+         required: true
      },
      title: {
           type: String,
           required: true
+     },
+     date: {
+          type: Date,
+          default: Date.now
+
      }
 })
 

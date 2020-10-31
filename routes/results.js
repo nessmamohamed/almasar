@@ -10,6 +10,7 @@ const express = require('express'),
    
           const newResult = new Results({
               results: req.body.results,
+              reasons: req.body.reasons,
               title: req.body.title
           })
 
@@ -24,7 +25,7 @@ const express = require('express'),
 
 
       router.get('/results', (req, res) => {
-        Quest.find({})
+        Results.find({})
         .then(results => res.json(results))
       })
 

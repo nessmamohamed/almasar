@@ -62,16 +62,16 @@ class Nav extends React.Component{
        <ul className="navbar-nav ml-5 d-flex py-3 py-md-0" style={{width: '100%', fontSize: '17px', justifyContent: 'flex-end'}}>
     
     
-       <li className='navbar-item my-auto py-3'>
-                       <a className='nabar-link mr-3' href='/masarquests' style={{color: 'black'}}>
+      { /*  <li className='navbar-item my-auto py-3'>
+                       <a className='nabar-link mr-3' href='/masarquests' style={{color: '#dc3545'}}>
                            <Translate content='quests'/>
                        </a>
-                   </li>
+        </li>*/}
 
 
        <li className='navbar-item mr-5 py-3' style={{listStyle:'none'}}>
                    <Dropdown  >
-  <Dropdown.Toggle variant="success" id="dropdown-basic2" style={{background: 'none', border: 'none', color: 'black' }}>
+  <Dropdown.Toggle variant="success" id="dropdown-basic2" style={{background: 'none', border: 'none', color: '#dc3545' }}>
 
      {localStorage.getItem('language') === 'en' ? 'English' : "العربية"}
       </Dropdown.Toggle>

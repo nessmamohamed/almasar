@@ -28,8 +28,8 @@ class Quest extends React.Component{
     state =  {
         err: false,
         form: false,
-        results: [],
-        results_ar: []
+        results: {},
+        reasons: []
     }
 
    
@@ -48,29 +48,29 @@ class Quest extends React.Component{
         
         if(this.state.results.length === 0){
             this.setState({
-                results: [...this.state.results, {[e.target.name] : e.target.value}]
+                results: {...this.state.results, [e.target.name] : e.target.value}
             })
         }else{
            
             
-        let arr = this.state.results
+        let obj = this.state.results
 
 
-        arr.map(ar => {
-            if(ar[nam]){
-                ar[nam] = e.target.value
+       
+            if(obj[nam]){
+                obj[nam] = e.target.value
                 
 
                 this.setState({
-                    results: [...arr],
+                    results: {...obj},
                     
                 })
             }else{
                 this.setState({
-                    results: [...this.state.results, {[e.target.name] : e.target.value}]
+                    results: {...this.state.results, [e.target.name] : e.target.value}
                 })
             }
-        })
+        
 
        
     
@@ -89,33 +89,33 @@ class Quest extends React.Component{
                     [indx]: answer
                 })
 
-                console.log(indx)
+                
 
                 if(this.state.results.length === 0){
                     this.setState({
-                        results: [...this.state.results, {[quest] : answer}]
+                        results: {...this.state.results, [quest] : answer}
                     })
                 }else{
                    
                     
-                let arr = this.state.results
+                let obj = this.state.results
         
         
-                arr.map(ar => {
-                    if(ar[nam]){
-                        ar[nam] = answer
+                
+                    if(obj[nam]){
+                        obj[nam] = answer
                         
         
                         this.setState({
-                            results: [...arr],
+                            results: {...obj},
                             
                         })
                     }else{
                         this.setState({
-                            results: [...this.state.results, {[quest] : answer}]
+                            results: {...this.state.results, [quest] : answer}
                         })
                     }
-                })
+                
         
                
             
@@ -137,7 +137,7 @@ class Quest extends React.Component{
 
         const title = this.props.quest.title
 
-        const {Cname , name, phone, form} = this.state
+        const {Cname , name, phone} = this.state
 
         
 
@@ -148,11 +148,7 @@ class Quest extends React.Component{
                     success:false
                 })
 
-            }else if(phone.length < 10 || phone[0] !== '+'){
-                this.setState({
-                    err: 'please enter a valid number !',
-                    success:false
-                })
+            
             }else{
 
                 const quser = {
@@ -175,6 +171,7 @@ class Quest extends React.Component{
 
                         const result = {
                            results: this.state.results,
+                           reasons: this.state.reasons,
                            title
                         }
 
@@ -196,13 +193,52 @@ class Quest extends React.Component{
                 
             }
         }
+
+        onChangeReason = (e) => {
+           e.preventDefault()
+
+           let nam = e.target.name
+       
+           
+            
+            if(this.state.reasons.length === 0){
+                this.setState({
+                    reasons: [...this.state.reasons, {[e.target.name] : e.target.value}]
+                })
+            }else{
+               
+                
+            let arr = this.state.reasons
+    
+    
+            arr.map(ar => {
+                if(ar[nam]){
+                    ar[nam] = e.target.value
+                    
+    
+                    this.setState({
+                        reasons: [...arr],
+                        
+                    })
+                }else{
+                    this.setState({
+                        reasons: [...this.state.reasons, {[e.target.name] : e.target.value}]
+                    })
+                }
+            })
+    
+           
+        
+        }
+
+        }
     
 
    
 
     render(){
-        
-        console.log(this.state)
+
+       
 
         let i = 0
         
@@ -469,7 +505,7 @@ class Quest extends React.Component{
                                     <div className='my-3'>
                                       {question.answers.length === 0 ?
                                       <div className="form-group">
-                                      <textarea onChange={this.onChange2} name={question.quest} id={question.quest_ar} className="form-control shadow"  rows="3"></textarea>
+                                      <textarea onChange={this.onChange2.bind(this, indx)} name={question.quest} id={question.quest_ar} className="form-control shadow"  rows="3"></textarea>
                                     </div>
                                      : 
                                       
@@ -492,8 +528,8 @@ class Quest extends React.Component{
     <button onClick={this.onClickFace.bind(this, question.quest, 'extremely dissatisfied', indx)} className='btn btn-light p-0 ml-2 pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely dissatisfied' ? 'red' : 'white'}}> 
         <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
     </button> 
-    <div className="form-group my-4" style ={{display: this.state[indx] === 'extremely dissatisfied' ? 'block' : 'none'}} >
-                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow "  rows="2" placeholder='write the reason ...'></textarea>
+    <div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied') ? 'block' : 'none'}} >
+                                      <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow "  rows="2" placeholder='write the reason ...'></textarea>
                                     </div>
         </div> 
          : 
@@ -506,7 +542,7 @@ answer === 'extremely dissatisfied' ?
   {answer}
 </label>
 <div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied')  ? 'block' : 'none'}} >
-                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow"  rows="2" placeholder='write the reason ...'></textarea>
+                                      <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow"  rows="2" placeholder='write the reason ...'></textarea>
                                     </div>
 
 </div>
@@ -541,8 +577,8 @@ answer === 'extremely dissatisfied' ?
   <FontAwesomeIcon icon={faFrown} className='my-auto mx-2 ' color='#f11c1c' style={{fontSize: '40px'}}/>
 </button> 
    - 
-   <div className="form-group my-4" style ={{display: this.state[indx] === 'extremely dissatisfied' ? 'block' : 'none'}} >
-                                      <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow text-right"  rows="2" placeholder='... اذكر السبب '></textarea>
+   <div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied') ? 'block' : 'none'}} >
+                                      <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow text-right"  rows="2" placeholder='... اذكر السبب '></textarea>
                                     </div> </div> 
    : 
 
@@ -556,7 +592,7 @@ answer === 'extremely dissatisfied' ?
 
    <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
    <div className="form-group my-4" style = {{display: this.state[indx] ===  'غير راضي' || this.state[indx] ===   'غير راضي جدا' ? 'block' : 'none'}}>
-                                         <textarea onChange={this.onChange} name={question.quest} id={question.quest_ar} className="form-control shadow text-right" placeholder='... اذكر السبب'  rows="2"></textarea>
+                                         <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow text-right" placeholder='... اذكر السبب'  rows="2"></textarea>
                                        </div>
    
    </div>
@@ -607,13 +643,10 @@ answer === 'extremely dissatisfied' ?
                 </div>
                
 
-                <div className=''>
-                    <div className='block2 shadow'></div>
-                    <div className='block3 shadow'></div>
-                <div className='block shadow'></div>
+         
                
              
-                </div>
+              
             </div>
            </div>
         )
@@ -621,7 +654,8 @@ answer === 'extremely dissatisfied' ?
 }
 
 const mapStateToProps = (state) => ({
-       quest : state.quests.quest
+       quest : state.quests.quest,
+       results: state.results.results
 })
 
 export default connect(mapStateToProps, {getQuest, addResult})(Quest)

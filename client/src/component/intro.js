@@ -10,7 +10,7 @@ import Fade from 'react-reveal/Fade';
 class intro extends React.Component{
     render(){
         return(
-            <div className='mx-auto text-right' dir="rtl" >
+            <div className='mx-auto text-right mt-5' dir="rtl" >
                 
                 <Fade >
                 <h4> نشكركم علي المشاركة في هذا الاستبيان </h4>

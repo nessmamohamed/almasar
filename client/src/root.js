@@ -13,6 +13,7 @@ import {Provider} from 'react-redux'
 import counterpart from 'counterpart';
 
 import {getQuests} from './actions/quest'
+import {getResults} from './actions/results'
 
 
 import en from './component/lang/en'
@@ -30,6 +31,7 @@ export default class root extends React.Component{
     componentDidMount(){
            
         store.dispatch(getQuests())
+        store.dispatch(getResults())
       }
 
       

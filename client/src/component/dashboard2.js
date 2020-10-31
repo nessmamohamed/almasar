@@ -9,6 +9,7 @@ class dashboard2 extends React.Component{
     render(){
 
         const quest = this.props.quest[0]
+        
 
         const question = quest ? quest.questions[3].quest : ''
         const question_ar = quest ? quest.questions[3].quest_ar : ''
@@ -184,7 +185,7 @@ class dashboard2 extends React.Component{
 
         //chart 4 
 
-        
+
 
 
 

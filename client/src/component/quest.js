@@ -537,7 +537,7 @@ class Quest extends React.Component{
 answer === 'extremely dissatisfied' ? 
 <div>
 <div className="form-check ">
-<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input " id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
 <label className="form-check-label" htmlFor="exampleRadios1">
   {answer}
 </label>
@@ -548,7 +548,7 @@ answer === 'extremely dissatisfied' ?
 </div>
 </div>:
 <div className="form-check ">
-<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+<input onChange = {this.onChange2.bind(this, indx)} className="form-check-input " id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
 <label className="form-check-label" htmlFor="exampleRadios1">
   {answer}
 </label>
@@ -590,7 +590,7 @@ answer === 'extremely dissatisfied' ?
      {answer}
    </label>
 
-   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input " id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
    <div className="form-group my-4" style = {{display: this.state[indx] ===  'غير راضي' || this.state[indx] ===   'غير راضي جدا' ? 'block' : 'none'}}>
                                          <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow text-right" placeholder='... اذكر السبب'  rows="2"></textarea>
                                        </div>
@@ -603,7 +603,7 @@ answer === 'extremely dissatisfied' ?
      {answer}
    </label>
 
-   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input shadow" id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
+   <input onChange = {this.onChange2.bind(this, indx)} className="form-check-input " id={question.quest_ar} type="radio" name={question.quest}  value={answer} />
    </div>}
                                    
 

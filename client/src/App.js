@@ -14,6 +14,13 @@ import Fade from 'react-reveal/Fade';
 import Intro from './component/intro'
 import IntroEn from './component/intro_en'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
+import {faCopyright } from '@fortawesome/free-solid-svg-icons'
+
+
+import icon from './component/images/m-icon.png'
+
 
 
 
@@ -77,6 +84,18 @@ class App extends React.Component {
 </Dropdown>
             </div>
 
+          </div>
+
+          <div className='footer'>
+            <p>all copyrights reserved to 2020 @
+            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '15px'}}/>
+
+            <a href='https://twitter.com/ConsultingMsar'>
+            <img src="https://img.icons8.com/fluent/48/000000/twitter.png" width='30' className='mr-2'/>
+            </a>
+                         <img src={icon} width='80'/>
+
+            </p>
           </div>
          
         </div>

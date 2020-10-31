@@ -5,6 +5,7 @@ import Chart from 'react-apexcharts'
 import {connect} from 'react-redux'
 
 import Dashboard2 from './dashboard2'
+import Dashboard3 from './dashboard3'
 
 class dashboard extends React.Component{
 
@@ -273,7 +274,7 @@ class dashboard extends React.Component{
               options={state1.options}
               series={state1.series}
               type="radialBar"
-              style={{width: '100%'}}
+              height='300'
             />
           </div>
         </div>
@@ -293,7 +294,7 @@ class dashboard extends React.Component{
   options={state2.options}
   series={state2.series}
   type="bar"
-  style={{width:'100%'}}
+  height='250'
 />
 </div>
                        </div>
@@ -307,7 +308,7 @@ class dashboard extends React.Component{
                            <div className='mixed-chart'>
                                <Chart
                                options={state3.options} series={state3.series} type="area" 
-                               style={{width: '100%'}}/>
+                               height='250'/>
                            </div>
                        </div>
                    </div>
@@ -315,6 +316,7 @@ class dashboard extends React.Component{
               </div>
 
               <Dashboard2/>
+              <Dashboard3/>
             </div>
         )
     }

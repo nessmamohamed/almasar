@@ -60,7 +60,7 @@ class dashboard2 extends React.Component{
                 breakpoint: 480,
                 options: {
                   chart: {
-                    width: 300
+                    width: 100
                   },
                   legend: {
                     position: 'bottom'
@@ -172,7 +172,7 @@ class dashboard2 extends React.Component{
                 breakpoint: 480,
                 options: {
                   chart: {
-                    width: 200
+                    width: 300
                   },
                   legend: {
                     position: 'bottom'
@@ -186,6 +186,109 @@ class dashboard2 extends React.Component{
         //chart 4 
 
 
+        
+        const question4 = quest ? quest.questions[6].quest : ''
+        const question_ar4 = quest ? quest.questions[6].quest_ar : ''
+
+        const results1_4 = results ? results.filter(result => {
+            return result.results[question4] ===  answers_ar[0] || result.results[question4] ===  answers[0]
+        }) : 0
+
+        const results2_4 = results?  results.filter(result => {
+            return result.results[question4] ===  answers_ar[1] || result.results[question4] ===  answers[1]
+        }):0
+
+        const results3_4 = results ? results.filter(result => {
+            return result.results[question4] ===  answers_ar[2] || result.results[question4] ===  answers[2]
+        }) : 0
+
+        const results4_4 = results?  results.filter(result => {
+            return result.results[question4] ===  answers_ar[1] || result.results[question4] ===  answers[1]
+        }):0
+
+        const results5_4 = results ? results.filter(result => {
+            return result.results[question4] ===  answers_ar[2] || result.results[question4] ===  answers[2]
+        }) : 0
+
+
+        const state4 = {
+         
+          series: [44, 55, 41, 17, 15],
+          options: {
+            chart: {
+              width: 380,
+              type: 'donut',
+              dropShadow: {
+                enabled: true,
+                color: '#111',
+                top: -1,
+                left: 3,
+                blur: 3,
+                opacity: 0.2
+              }
+            },
+            stroke: {
+              width: 0,
+            },
+            plotOptions: {
+              pie: {
+                donut: {
+                  labels: {
+                    show: true,
+                    total: {
+                      showAlways: true,
+                      show: true
+                    }
+                  }
+                }
+              }
+            },
+            labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+            colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)'],
+            dataLabels: {
+              dropShadow: {
+                blur: 3,
+                opacity: 0.8
+              }
+            },
+            fill: {
+            type: 'pattern',
+              opacity: 1,
+              pattern: {
+                enabled: true,
+                style: ['verticalLines', 'squares', 'horizontalLines', 'circles','slantedLines'],
+              },
+            },
+            states: {
+              hover: {
+                filter: 'none'
+              }
+            },
+            theme: {
+              palette: 'palette2'
+            },
+            title: {
+              text: "Favourite Movie Type"
+            },
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+          },
+        
+        
+
+        
+        
+          
+          };
 
 
 
@@ -200,46 +303,53 @@ class dashboard2 extends React.Component{
                          <div className='mixed-chart'>
                              
                              <Chart
-                             options={state1.options} series={state1.series} type="donut"/>
+                             options={state1.options} series={state1.series} type="donut" height='170'/>
                          </div>
                      </div>
                  </div>
                 </div>
 
                
-                <div className='card shadow ml-5' style={{width: '20%' , minWidth:' 400px'}} >
+           <div style={{width:'min-content'}}>
+           <div className='card shadow ml-5' style={{width: '20%' , minWidth:' 400px'}} >
                      <div className='card-body'>
                      <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
                          <div className='mixed-chart'>
                              
                              <Chart
-                             options={state2.options} series={state2.series} type="pie" style={{width: '100%'}}/>
+                             options={state2.options} series={state2.series} type="pie" height='170'/>
                          </div>
                      </div>
                
                
              </div>
+           </div>
 
 
-            
-                <div className='card shadow ml-5' style={{width: '20%' , minWidth:' 400px'}} >
+            <div style={{width:'min-content'}}>
+              
+            <div className='card shadow ml-5' style={{width:' 400px'}} >
                      <div className='card-body'>
                      <h6>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
                          <div className='mixed-chart'>
                              
                              <Chart
-                             options={state3.options} series={state3.series} type="polarArea" />
+                             options={state3.options} series={state3.series} type="polarArea" height='170' />
                          </div>
                      </div>
                  </div>
+            </div>
 
+              
+
+                 
                  <div className='card shadow ml-5' style={{width: '20%' , minWidth:' 400px'}} >
                      <div className='card-body'>
-                     <h6>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
+                     <h6>{localStorage.getItem('language') === 'en' ? question4 : question_ar4}</h6>
                          <div className='mixed-chart'>
                              
                              <Chart
-                             options={state3.options} series={state3.series} type="polarArea" />
+                             options={state4.options} series={state4.series} type="donut" height='170' />
                          </div>
                      </div>
                  </div>

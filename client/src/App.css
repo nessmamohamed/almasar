@@ -77,7 +77,7 @@ a:hover{
 
 @media (max-width: 792px){
     .div1{
-        height: 1100px;
+        height: 1250px;
     }
 .quiz{
    
@@ -239,4 +239,24 @@ a:hover{
 
 p{
     margin-bottom: .5rem !important;
+}
+
+.apexcharts-treemap-rect:nth-last-of-type(5){
+    fill: rgba(254, 178, 25, 0.692)   !important
+}
+
+.apexcharts-treemap-rect:nth-last-of-type(4){
+    fill: rgb(0, 142, 251)   !important
+}
+
+.apexcharts-treemap-rect:nth-last-of-type(3){
+    fill:rgba(120, 93, 208, 0.582)  !important
+}
+
+.apexcharts-treemap-rect:nth-last-of-type(2){
+    fill:rgba(255, 69, 97, 0.623) !important
+}
+
+.apexcharts-treemap-rect:nth-last-of-type(1){
+    fill: rgb(0, 227, 151)!important
 }

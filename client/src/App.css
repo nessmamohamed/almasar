@@ -25,12 +25,13 @@
 
 .quiz{
   
-        vertical-align: middle;
-        border-style: none;
-        width: 650px;
-        margin-top: 250px;
-        margin-left: 20px;
-        transform: skewY(30deg) !important;
+    border-style: none;
+    width: 80%;
+    height: 125%;
+    margin-top: 170px;
+    /* margin-left: 20px; */
+    transform: skewY(27deg) !important;
+    background-position: center;
     
 }
 
@@ -81,8 +82,8 @@ a:hover{
     }
 .quiz{
    
-    width: 380px;
-    margin-top: 600px;
+    width: 200%;
+    margin-top: 40px;
     margin-left: 0px;
     transform: skewY(20deg) !important;
 }

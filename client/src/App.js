@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Dropdown } from 'react-bootstrap';
 
 
-import quiz from './component/images/quiz3.jpg'
+import back from './component/images/back-m.jpeg'
 
 
 import Fade from 'react-reveal/Fade';
@@ -49,9 +49,9 @@ class App extends React.Component {
        
          <div className='div2 shadow' >
           
-           <Fade left>
-           <img alt='img' className='quiz' src={quiz}/>
-           </Fade>
+          
+           <img alt='img' className='quiz' src={back}/>
+         
           </div>
 
 

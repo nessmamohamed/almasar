@@ -516,19 +516,19 @@ class Quest extends React.Component{
                                           <div >
                                               {answer === 'emoji' ? 
         <div> - <button onClick={this.onClickFace.bind(this, question.quest, 'extremely satisfied', indx)}    className='btn btn-light p-0  pt-1' style={{background: 'white', borderColor: this.state[indx] === 'extremely satisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-1 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+        <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-1 ' color='mediumseagreen' style={{fontSize: '35px'}}/>
     </button>
     <button onClick={this.onClickFace.bind(this, question.quest, 'satisfied', indx)}  className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'satisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faSmile} className='my-auto mx-1 ' color='limegreen' style={{fontSize: '40px'}}/>
+        <FontAwesomeIcon icon={faSmile} className='my-auto mx-1 ' color='limegreen' style={{fontSize: '35px'}}/>
     </button>
     <button onClick={this.onClickFace.bind(this, question.quest, 'neutral', indx)}  className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'neutral' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faMeh} className='my-auto mx-1 ' color='#eae303' style={{fontSize: '40px'}}/>
+        <FontAwesomeIcon icon={faMeh} className='my-auto mx-1 ' color='#eae303' style={{fontSize: '35px'}}/>
     </button>   
     <button onClick={this.onClickFace.bind(this, question.quest, 'dissatisfied', indx)}  className='btn btn-light p-0  pt-1' style={{background: 'white', borderColor: this.state[indx] === 'dissatisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#ffc107' style={{fontSize: '40px'}}/>
+        <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#ffc107' style={{fontSize: '35px'}}/>
     </button>  
     <button onClick={this.onClickFace.bind(this, question.quest, 'extremely dissatisfied', indx)} className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely dissatisfied' ? 'red' : 'white'}}> 
-        <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#f11c1c' style={{fontSize: '40px'}}/>
+        <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#f11c1c' style={{fontSize: '35px'}}/>
     </button> 
     <div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied') ? 'block' : 'none'}} >
                                       <textarea onChange={this.onChangeReason} name={question.quest} id={question.quest_ar} className="form-control shadow "  rows="2" placeholder='write the reason ...'></textarea>
@@ -564,19 +564,19 @@ answer === 'extremely dissatisfied' ?
                                         <div className='text-right mr-3'>
                                         {answer === 'emoji' ? 
   <div>   <button onClick={this.onClickFace.bind(this, question.quest, 'extremely satisfied', indx)}    className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely satisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-1 ' color='mediumseagreen' style={{fontSize: '40px'}}/>
+  <FontAwesomeIcon icon={faGrinAlt} className='my-auto mx-1 ' color='mediumseagreen' style={{fontSize: '35px'}}/>
 </button>
 <button onClick={this.onClickFace.bind(this, question.quest, 'satisfied', indx)} className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'satisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faSmile} className='my-auto mx-1 ' color='limegreen' style={{fontSize: '40px'}}/>
+  <FontAwesomeIcon icon={faSmile} className='my-auto mx-1 ' color='limegreen' style={{fontSize: '35px'}}/>
 </button>
 <button onClick={this.onClickFace.bind(this, question.quest, 'neutral', indx)} className='btn btn-light p-0  pt-1' style={{background: 'white', borderColor: this.state[indx] === 'neutral' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faMeh} className='my-auto mx-1 ' color='#eae303' style={{fontSize: '40px'}}/>
+  <FontAwesomeIcon icon={faMeh} className='my-auto mx-1 ' color='#eae303' style={{fontSize: '35px'}}/>
 </button>   
 <button onClick={this.onClickFace.bind(this, question.quest, 'dissatisfied', indx)} className='btn btn-light p-0  pt-1' style={{background: 'white',   borderColor: this.state[indx] === 'dissatisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#ffc107' style={{fontSize: '40px'}}/>
+  <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#ffc107' style={{fontSize: '35px'}}/>
 </button>  
 <button onClick={this.onClickFace.bind(this, question.quest, 'extremely dissatisfied', indx)} className='btn btn-light p-0  pt-1' style={{background: 'white',  borderColor: this.state[indx] === 'extremely dissatisfied' ? 'red' : 'white'}}> 
-  <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#f11c1c' style={{fontSize: '40px'}}/>
+  <FontAwesomeIcon icon={faFrown} className='my-auto mx-1 ' color='#f11c1c' style={{fontSize: '35px'}}/>
 </button> 
    - 
    <div className="form-group my-4" style ={{display: (this.state[indx] === 'dissatisfied' || this.state[indx] === 'extremely dissatisfied') ? 'block' : 'none'}} >

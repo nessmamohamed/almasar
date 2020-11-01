@@ -64,7 +64,7 @@ class App extends React.Component {
 
             <div className='language'>
             <Dropdown  >
-  <Dropdown.Toggle variant="success" id="dropdown-basic2" style={{background: 'none', border: 'none', }}>
+  <Dropdown.Toggle variant="success" id="dropdown-basic2" style={{background: 'none', border: 'none', color: 'red' }}>
 
      {localStorage.getItem('language') === 'en' ? 'English' : "العربية"}
       </Dropdown.Toggle>

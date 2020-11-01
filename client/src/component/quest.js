@@ -250,10 +250,10 @@ class Quest extends React.Component{
                <Nav/>
                 <div className='py-5 mx-auto' style={{maxWidth: '1000px'}}>
                 <div className='card mt-5' id='quest-card' style={{boxShadow:' 0 .5rem 1rem #149071', background: 'linear-gradient(180deg, #ce2535, transparent)'}}>
-                    <div className='card-body shadow ' style={{ minHeight: '800px', borderTopRightRadius: '200px', background: 'white'}}>
+                    <div className='card-body shadow ' style={{ minHeight: '800px', borderTopRightRadius: '180px', background: 'white'}}>
                        
                     <div className='text-center my-4'>
-                            <h5 className='mx-auto' style={{width: '88%'}}>{localStorage.getItem('language') === 'en' ? this.props.quest.title
+                            <h5 className='mx-auto' style={{width: '79%'}}>{localStorage.getItem('language') === 'en' ? this.props.quest.title
                             : this.props.quest.title_ar}</h5>
 
                             <div className='dashed mx-auto'></div>

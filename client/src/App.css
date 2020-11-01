@@ -258,3 +258,21 @@ p{
 .apexcharts-treemap-rect:nth-last-of-type(1){
     fill: rgb(0, 227, 151)!important
 }
+
+.n-bar{
+    background: #28a7457d;
+    position: fixed;
+    height: 100%;
+    width: 50px;
+    top: 0;
+    right: 0;
+}
+
+.n-menu{
+    background: #28a7457d;
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    top: 0;
+    right: 0;
+}

@@ -7,12 +7,42 @@ import {connect} from 'react-redux'
 import Dashboard2 from './dashboard2'
 import Dashboard3 from './dashboard3'
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
+import {faBars } from '@fortawesome/free-solid-svg-icons'
+
+
+import Fade from 'react-reveal/Fade';
+
+import { Dropdown } from 'react-bootstrap';
+
 class dashboard extends React.Component{
+
+  state ={
+    menu: false
+  }
+
+  onClickBar =(e) =>{
+    e.preventDefault()
+
+    this.setState({
+      menu: !this.state.menu
+    })
+  }
+
+  onClicklang = (e) => {
+    localStorage.setItem('language', e.target.name)
+
+    setTimeout(() => {
+      window.location.reload()
+    }, 500);
+ }
 
     
 
     render(){
 
+     
 
         const quest = this.props.quest[0]
 
@@ -260,8 +290,8 @@ class dashboard extends React.Component{
        
 
         return(
-            <div style={{background: '#eceff1'}} >
-              <div className='row justify-content-center pt-3'>
+            <div style={{background: '#eceff1', paddingRight: '90px'}} >
+              <div className='row justify-content-center pt-3' >
               <div className=''>
                <div className= 'card shadow my-auto ' >
                <div className="card-body text-center " >
@@ -318,6 +348,72 @@ class dashboard extends React.Component{
 
               <Dashboard2/>
               <Dashboard3/>
+
+             <Fade>
+             <div className= 'n-bar text-center pt-4' style={{display: !this.state.menu ? 'block' : 'none'}}>
+                  <button onClick = {this.onClickBar} className='btn btn-light mx-auto' style={{background: 'none', border: 'none'}}>
+                  <FontAwesomeIcon icon={faBars} color='white' style={{fontSize: '25px'}} />
+                  </button>
+              </div>
+             </Fade>
+
+
+             
+              <Fade>
+              <div className='n-menu text-center pt-3 text-light' style={{display: this.state.menu ? 'block' : 'none'}}>
+              <button  onClick={this.onClickBar}  className='btn btn-light ' style={{background: 'none', border: 'none', color: 'white', fontSize: '21px'}}>
+                     Dashboard
+                     </button>
+                  <hr/>
+                      <h5>
+                      {localStorage.getItem('language') === 'en' ? 'language' : 'اللغة'}
+                      </h5>
+                  <ul style={{listStyle: 'none', padding: 0}}>
+                    <li>
+                     <button name='en' onClick={this.onClicklang}  className='btn btn-light' style={{background: 'none', border: 'none', color: 'white'}}>
+                       English
+                     </button>
+                    </li>
+                    <li>
+                     <button name= 'ar' onClick={this.onClicklang}  className='btn btn-light' style={{background: 'none', border: 'none', color: 'white'}}>
+                       Arabic
+                     </button>
+                    </li>
+                  </ul>  
+
+                  <br/>
+
+                  <div>
+          <a className='text-light' href = '/addquest'>{localStorage.getItem('language') === 'en' ? 'Add questionnaire' : 'اضافة استبيان'}</a>
+
+          </div>
+
+          <br/>
+
+          <div>
+          <a className='text-light' href = '/masarquests'>{localStorage.getItem('language') === 'en' ? 'questionnaires' : 'استبيانات'}</a>
+
+          </div>
+
+          <br/>
+
+       <div>
+       <a className='text-light' href='/adduser'>{localStorage.getItem('language') === 'en' ? 'Add User' : 'اضافة مستخدم'}</a>
+       </div>
+
+       <br/>
+
+       <div>
+       <a className='text-light' href='/users'>{localStorage.getItem('language') === 'en' ? 'Users' : 'المستخدمين'}</a>
+       </div>
+
+       
+        
+
+         
+               </div>
+              </Fade>
+              
             </div>
         )
     }

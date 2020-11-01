@@ -9,7 +9,6 @@ import { Dropdown } from 'react-bootstrap';
 import back from './component/images/back-m.jpeg'
 
 
-import Fade from 'react-reveal/Fade';
 
 import Intro from './component/intro'
 import IntroEn from './component/intro_en'

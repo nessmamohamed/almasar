@@ -7,6 +7,7 @@ import Quest from './component/quest'
 import Quests from './component/quests'
 import Dashboard from './component/dashboard'
 import Msg from './component/msg'
+import AddUser from './component/adduser'
 
 import store from './store'
 import {Provider} from 'react-redux'
@@ -48,6 +49,7 @@ export default class root extends React.Component{
                     <Route  path='/dashboard' component={Dashboard}/>
                     <Route  path='/masarquests' component={Quests}/>
                     <Route  path='/msg' component={Msg}/>
+                    <Route  path = '/adduser' component={AddUser} /> 
                 </Router>
             </div>
            </Provider>

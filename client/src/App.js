@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Dropdown } from 'react-bootstrap';
 
 
-import back from './component/images/back-m.jpeg'
-
+import back from './component/images/logo11.jpg'
+import logo from './component/images/logo10.png'
 
 
 import Intro from './component/intro'
@@ -16,6 +16,8 @@ import IntroEn from './component/intro_en'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 import {faCopyright } from '@fortawesome/free-solid-svg-icons'
+
+import {connect} from 'react-redux'
 
 
 import icon from './component/images/m-icon.png'
@@ -55,12 +57,20 @@ class App extends React.Component {
 
 
           <div className='div3' >
+  <div className='text-center mb-4'>
+    
+  {localStorage.getItem('language') === 'en' ? (this.props.quest[0]?  <h4>{this.props.quest[0].title}</h4> : '' ): this.props.quest[0]?  <h4>{this.props.quest[0].title_ar}</h4> : ''}
+  
+  <div className= 'border-bottom text-center mx-auto ' style={{width: '80%', borderColor: '#dee2e685'}}></div>
+  </div>
           {localStorage.getItem('language') === 'en' ? <IntroEn/> : <Intro/>}
           </div>
 
           <div>
 
             <div className='div4 shadow'></div>
+
+            <img src={logo} width='150px' className='logo2'/>
 
             <div className='language'>
             <Dropdown  >
@@ -104,4 +114,8 @@ class App extends React.Component {
  }
 }
 
-export default App;
+const mapstatetoprops =( state ) => ({
+  quest : state.quests.quests
+})
+
+export default connect(mapstatetoprops) (App);

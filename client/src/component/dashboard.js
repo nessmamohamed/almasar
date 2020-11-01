@@ -79,6 +79,7 @@ class dashboard extends React.Component{
               },
               colors:['rgb(254, 176, 25)',  'rgb(119, 93, 208)', 'rgb(255, 69, 96)'],
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+              
               legend: {
                 show: true,
                 floating: true,
@@ -166,9 +167,9 @@ class dashboard extends React.Component{
               type: 'bar',
               height: 350
             },
-            plotOptions: {
+            plotOptions:{
               bar: {
-                horizontal: true,
+                horizontal: false
               }
             },
             dataLabels: {

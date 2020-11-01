@@ -61,23 +61,23 @@ class dashboard3 extends React.Component{
                 {
                   data: [
                     {
-                      x: answers[0],
+                      x: localStorage.getItem('language') === 'en' ? answers[0] : answers_ar[0],
                       y: 218
                     },
                     {
-                      x: answers[1],
+                      x: localStorage.getItem('language') === 'en' ? answers[1] : answers_ar[1],
                       y: 149
                     },
                     {
-                      x: answers[2],
+                      x: localStorage.getItem('language') === 'en' ? answers[2] : answers_ar[2],
                       y: 184
                     },
                     {
-                      x: answers[3],
+                      x: localStorage.getItem('language') === 'en' ? answers[3] : answers_ar[3],
                       y: 55
                     },
                     {
-                      x: answers[4],
+                      x: localStorage.getItem('language') === 'en' ? answers[4] : answers_ar[4],
                       y: 84
                     }
                   ]

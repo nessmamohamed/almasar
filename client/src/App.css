@@ -80,7 +80,7 @@ a:hover{
 }
 
 @media (max-width: 792px){
-    h5.react-reveal{
+    #h5.react-reveal{
         font-size: initial;
     }
     button.btn.btn-light.mt-3.btn-lg.px-5.shadow {

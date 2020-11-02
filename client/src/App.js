@@ -45,7 +45,7 @@ class App extends React.Component {
       
 
 
-        <div className='div1'>
+        <div  style={{height:  '1050px' , position: 'relative', background: '#137d4d', width: 'auto'}}>
        
        
          <div className='div2 shadow' >

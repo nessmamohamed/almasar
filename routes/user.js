@@ -5,7 +5,7 @@ const express = require('express'),
       jwt = require('jsonwebtoken'),
       bcrypt = require('bcryptjs')
 
-      router.post('/', (req, res) => {
+      router.post('/user', (req, res) => {
         const { name, password } = req.body;
       
         // Simple validation

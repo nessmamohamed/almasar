@@ -12,6 +12,7 @@ import { Dropdown } from 'react-bootstrap';
 import {connect} from 'react-redux'
 import {addQuest} from '../actions/quest'
 
+import Nav from './nav'
 class addQuests extends React.Component{
 
     state={
@@ -282,7 +283,11 @@ class addQuests extends React.Component{
         let answers_ar = this.state.answers_ar
 
         return(
-            <div className='mx-auto mt-5' style={{maxWidth: '500px'}}>
+            <div>
+
+                <Nav/>
+                
+                <div className='mx-auto mt-5' style={{maxWidth: '500px'}}>
                <div className = 'card shadow text-center ' >
                    <div className='card-header bg-success text-light'>Add Quest</div>
 
@@ -493,6 +498,7 @@ question.answers_ar.map(answer => (
            </div>
         </div>
     </div>
+            </div>
             </div>
 
         )

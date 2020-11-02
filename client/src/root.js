@@ -8,6 +8,7 @@ import Quests from './component/quests'
 import Dashboard from './component/dashboard'
 import Msg from './component/msg'
 import AddUser from './component/adduser'
+import Login from './component/login'
 
 import store from './store'
 import {Provider} from 'react-redux'
@@ -16,6 +17,7 @@ import counterpart from 'counterpart';
 
 import {getQuests} from './actions/quest'
 import {getResults} from './actions/results'
+import {loadUser} from './actions/user'
 
 
 import en from './component/lang/en'
@@ -34,6 +36,8 @@ export default class root extends React.Component{
            
         store.dispatch(getQuests())
         store.dispatch(getResults())
+      
+        store.dispatch(loadUser())
       }
 
       
@@ -50,6 +54,7 @@ export default class root extends React.Component{
                     <Route  path='/masarquests' component={Quests}/>
                     <Route  path='/msg' component={Msg}/>
                     <Route  path = '/adduser' component={AddUser} /> 
+                    <Route path = '/admin' component={Login} />
                 </Router>
             </div>
            </Provider>

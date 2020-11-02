@@ -34,6 +34,8 @@ const express = require('express'),
       app.use('/', require('./routes/quest'))
       app.use('/', require('./routes/quser'))
       app.use('/', require('./routes/results'))
+      app.use('/' , require('./routes/user'))
+      app.use('/' , require('./routes/auth'))
 
        //mongoose url 
        const url = 'mongodb+srv://nesso:111222333Nn@nmcluster.tb0vp.mongodb.net/elmasar?retryWrites=true&w=majority'

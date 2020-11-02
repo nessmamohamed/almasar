@@ -4,12 +4,14 @@ import Chart from 'react-apexcharts'
 
 import {connect} from 'react-redux'
 
+import {logout} from '../actions/user'
+
 import Dashboard2 from './dashboard2'
 import Dashboard3 from './dashboard3'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import {faBars } from '@fortawesome/free-solid-svg-icons'
+import {faBars, faHome , faStickyNote, faPrint, faUsers} from '@fortawesome/free-solid-svg-icons'
 
 
 import Fade from 'react-reveal/Fade';
@@ -36,6 +38,14 @@ class dashboard extends React.Component{
     setTimeout(() => {
       window.location.reload()
     }, 500);
+ }
+
+ onLogout = () => {
+   this.props.logout()
+
+   setTimeout(() => {
+      window.location.href= '/admin'
+   }, 200);
  }
 
     
@@ -291,7 +301,11 @@ class dashboard extends React.Component{
 
         return(
             <div style={{background: '#eceff1', paddingRight: '90px'}} >
-              <div className='row justify-content-center pt-3' >
+              
+              {this.props.auth.user? 
+          
+             <div>
+                   <div className='row justify-content-center pt-3' >
               <div className=''>
                <div className= 'card shadow my-auto ' >
                <div className="card-body text-center " >
@@ -357,12 +371,12 @@ class dashboard extends React.Component{
               </div>
              </Fade>
 
-
+              {/**dashboard */}
              
               <Fade>
               <div className='n-menu text-center pt-3 text-light' style={{display: this.state.menu ? 'block' : 'none'}}>
               <button  onClick={this.onClickBar}  className='btn btn-light ' style={{background: 'none', border: 'none', color: 'white', fontSize: '21px'}}>
-                     Dashboard
+                <FontAwesomeIcon icon={faHome} color='white' className='mr-2'/> Dashboard
                      </button>
                   <hr/>
                       <h5>
@@ -381,21 +395,34 @@ class dashboard extends React.Component{
                     </li>
                   </ul>  
 
-                  <br/>
+
+
+         {
+           this.props.auth.user ?
+           this.props.auth.user.admin ? 
+
+           <div>
+               <div>
+                    <FontAwesomeIcon icon={faStickyNote} color='white' style={{fontSize:'25px'}}/>
+                  </div>
 
                   <div>
           <a className='text-light' href = '/addquest'>{localStorage.getItem('language') === 'en' ? 'Add questionnaire' : 'اضافة استبيان'}</a>
 
           </div>
 
-          <br/>
-
+         
+<br/>
           <div>
           <a className='text-light' href = '/masarquests'>{localStorage.getItem('language') === 'en' ? 'questionnaires' : 'استبيانات'}</a>
 
           </div>
 
-          <br/>
+         
+
+          <div className='mt-4'>
+                    <FontAwesomeIcon icon={faUsers} color='white' style={{fontSize:'25px'}} />
+                  </div>
 
        <div>
        <a className='text-light' href='/adduser'>{localStorage.getItem('language') === 'en' ? 'Add User' : 'اضافة مستخدم'}</a>
@@ -407,12 +434,32 @@ class dashboard extends React.Component{
        <a className='text-light' href='/users'>{localStorage.getItem('language') === 'en' ? 'Users' : 'المستخدمين'}</a>
        </div>
 
+       <br/>
+
+       <div>
+       <button className='btn btn-light text-light' onClick={this.onLogout}  style={{background: 'none', border: 'none'}} >{localStorage.getItem('language') === 'en' ? 'Logout' : 'تسجيل خروج'}</button>
+       </div>
+
+       <br/>
+
+           </div>
+
+           : '' : ''
+         }
+               
+
+                
+       <div>
+         <FontAwesomeIcon icon={faPrint} color='white' style={{fontSize: '20px'}}/> Print
+       </div>
+
        
         
 
          
                </div>
               </Fade>
+             </div>: ''}
               
             </div>
         )
@@ -421,6 +468,7 @@ class dashboard extends React.Component{
 
 const mapStateToProps =(state) => ({
     results: state.results.results, 
-    quest: state.quests.quests
+    quest: state.quests.quests,
+    auth: state.auth
 })
-export default connect(mapStateToProps)(dashboard)
+export default connect(mapStateToProps, {logout})(dashboard)

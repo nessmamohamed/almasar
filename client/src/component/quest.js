@@ -6,7 +6,7 @@ import {addResult} from '../actions/results'
 
 
 import Nav from './nav'
-import Msg from './msg'
+
 
 import Translate from 'react-translate-component';
 

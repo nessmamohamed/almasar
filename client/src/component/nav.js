@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 import Fade from 'react-reveal/Fade';
 
@@ -6,7 +6,11 @@ import logo from './images/logo10.png'
 
 import { Dropdown } from 'react-bootstrap';
 
+import {connect} from 'react-redux'
+
 import Translate from 'react-translate-component';
+
+import {logout} from '../actions/user'
 
 
 class Nav extends React.Component{
@@ -29,6 +33,14 @@ class Nav extends React.Component{
         }, 500);
      }
 
+     onLogout = () => {
+      this.props.logout()
+   
+      setTimeout(() => {
+         window.location.href= '/admin'
+      }, 200);
+    }
+   
 
     render(){
 
@@ -62,11 +74,35 @@ class Nav extends React.Component{
        <ul className="navbar-nav ml-5 d-flex py-3 py-md-0" style={{width: '100%', fontSize: '17px', justifyContent: 'flex-end'}}>
     
     
-      { /*  <li className='navbar-item my-auto py-3'>
-                       <a className='nabar-link mr-3' href='/masarquests' style={{color: '#dc3545'}}>
-                           <Translate content='quests'/>
+
+
+  {
+    this.props.auth.user ? 
+
+    
+
+   <Fragment className='d-flex'>
+     <li className='navbar-item my-auto py-3'>
+                       <a className='nabar-link mr-3' href='/Dashboard' style={{color: '#dc3545'}}>
+                           Dashboard
                        </a>
-        </li>*/}
+        </li>
+
+      <li className='navbar-item my-auto py-3 text-success'>
+    Welcome {this.props.auth.user.name}
+</li>
+
+    <li className='navbar-item my-auto py-3'>
+          <button className='nabar-link mx-3 btn btn-light' onClick={this.onLogout}  style={{color: '#dc3545', background: 'none', border: 'none'}}>
+                          logout
+                       </button>
+    </li>
+   </Fragment>
+    : ''
+  }
+
+  
+
 
 
        <li className='navbar-item mr-5 py-3' style={{listStyle:'none'}}>
@@ -105,4 +141,7 @@ class Nav extends React.Component{
     }
 }
 
-export default Nav
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps, {logout})(Nav)

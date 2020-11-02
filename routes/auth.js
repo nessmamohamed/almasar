@@ -10,7 +10,7 @@ const express = require('express'),
 
             // get req api/auth/user
 
-router.get('/', auth, (req, res) =>{
+router.get('/user', auth, (req, res) =>{
     User.findById(req.user.id)
     .select('-password')
     .then(user => res.json(user)) 
@@ -18,7 +18,7 @@ router.get('/', auth, (req, res) =>{
 })
 
 
-router.post('/', (req, res)=>{
+router.post('/loginUser', (req, res)=>{
     const { name, password} = req.body;
      
     // simple validation

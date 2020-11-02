@@ -294,3 +294,33 @@ p{
 .show>.btn-success.dropdown-toggle{
     color: red !important;
 }
+
+.div7{
+    position: relative;
+    height: 1000px;
+    background-color: #eceff1;
+    width: auto;
+    overflow: hidden;
+}
+
+.di5{
+position: absolute;
+
+background: rgb(48 175 48);
+
+width: 100%;
+height: 500px;
+bottom: -200px;
+transform: skewY(10deg);
+}
+
+.div6{
+    position: absolute;
+    
+    background: #d02d2d;
+    
+    width: 100%;
+    height: 500px;
+    bottom: -250px;
+    transform: skewY(-11deg);
+    }

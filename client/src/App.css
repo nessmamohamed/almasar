@@ -86,6 +86,9 @@ a:hover{
 }
 
 @media (max-width: 792px){
+    .language{
+        right: 15px
+    }
     .div4{
         top: -200px
     }

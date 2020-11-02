@@ -20,17 +20,17 @@ export default class Msg extends React.Component{
                             <img src = {logo} width='200'/>
                         {localStorage.getItem('language') !== 'en' ? 
                         <div className= 'mt-4'>
-                            <h6>نشكر لكم المشاركة في هذا الاستبيان و سوف نأخذ بعين الاعتبار جميع الملاحظات و الاقتراحات في تحسين خدماتنا مستقبلا </h6>
-                        <h6 >اذا كان لديك اي استفسار او ملاحظات بخصوص هذا الاستبيان ، الرجاء التواصل علي العنوان التالي :</h6>
+                            <h6>نشكر لكم المشاركة في هذا الإستبيان و سوف نأخذ بعين الإعتبار جميع الملاحظات و الإقتراحات في تحسين خدماتنا مستقبلا </h6>
+                        <h6 >اذا كان لديك أي إستفسار أو ملاحظات بخصوص هذا الإستبيان ، الرجاء التواصل على العنوان التالي :</h6>
                         
-                        <p className='text-info'>مسار للاستشارات الادارية</p>
+                        <p className='text-info'>مسار للإستشارات الإدارية</p>
                         <p className='text-info'>المملكة العربية السعودية</p>
 
                      
 
 
                         <p className='text-info'>+966 552101067</p>
-                        <p className='text-info'>info@elmsarsa.com</p>
+                        <p className='text-info'>info@almsarsa.com</p>
                         <p className='text-info'>@ConsultingMsar</p>
                         </div>: <div>
                         <h6> We thank you for participating in this survey, and we will take into consideration all comments and suggestions in improving our services in the future </h6>                     
@@ -41,7 +41,7 @@ export default class Msg extends React.Component{
                     
 
                         <p className='text-info'>+966 552101067</p>
-                        <p className='text-info'>info@elmsarsa.com</p>
+                        <p className='text-info'>info@almsarsa.com</p>
                         <p className='text-info'>@ConsultingMsar</p>
                         
                         </div>}

@@ -249,8 +249,8 @@ class Quest extends React.Component{
            <div>
                <Nav/>
                 <div className='py-5 mx-auto' style={{maxWidth: '1000px'}}>
-                <div className='card mt-5' id='quest-card' style={{boxShadow:' 0 .5rem 1rem #149071', background: 'linear-gradient(180deg, #ce2535, transparent)'}}>
-                    <div className='card-body shadow ' style={{ minHeight: '800px', borderTopRightRadius: '180px', background: 'white'}}>
+                <div className='card mt-5' id='quest-card' style={{minHeight: '700px' , boxShadow:' 0 .5rem 1rem #149071', background: 'linear-gradient(180deg, #ce2535, transparent)'}}>
+                    <div className='card-body shadow d-none ' style={{ minHeight: '800px', borderTopRightRadius: '180px', background: 'white'}}>
                        
                     <div className='text-center my-4'>
                             <h5 className='mx-auto' style={{width: '79%'}}>{localStorage.getItem('language') === 'en' ? this.props.quest.title
@@ -640,10 +640,21 @@ answer === 'extremely dissatisfied' ?
 
                     </div>
                     
+
                     
                   
                 </div>
                
+
+               
+                <div className='d-flex'>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</div>
 
          
                

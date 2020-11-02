@@ -13,10 +13,10 @@ class intro_en extends React.Component{
             <div className='ml-0 ml-sm-5  '  >
                 
                 <Fade >
-                <h5 id={{h5}}> We thank you for participating in this survey </h5>
-                <h5 id={{h5}}>Through which we aim to measure the extent of your satisfaction with our provided services and improve the quality of our services in the future</h5>
+                <h5 id='h5'> We thank you for participating in this survey </h5>
+                <h5 id='h5'>Through which we aim to measure the extent of your satisfaction with our provided services and improve the quality of our services in the future</h5>
                 
-                <h5 id={{h5}}>This questionnaire takes only two minutes, and all answers and suggestions will be treated with complete confidentiality and will also be collected and analyzed by a consultant to ensure transparency and impartiality.</h5>
+                <h5 id='h5'>This questionnaire takes only two minutes, and all answers and suggestions will be treated with complete confidentiality and will also be collected and analyzed by a consultant to ensure transparency and impartiality.</h5>
                 </Fade>
 
                 <div className='text-center mt-5'>

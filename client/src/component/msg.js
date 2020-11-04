@@ -30,7 +30,7 @@ export default class Msg extends React.Component{
 
 
                         <p className='text-info'>+966 552101067</p>
-                        <p className='text-info'>info@almsarsa.com</p>
+                        <p className='text-info'>info@msarconlt.com</p>
                         <p className='text-info'>@ConsultingMsar</p>
                         </div>: <div>
                         <h6> We thank you for participating in this survey, and we will take into consideration all comments and suggestions in improving our services in the future </h6>                     
@@ -41,7 +41,7 @@ export default class Msg extends React.Component{
                     
 
                         <p className='text-info'>+966 552101067</p>
-                        <p className='text-info'>info@almsarsa.com</p>
+                        <p className='text-info'>info@msarconlt.com</p>
                         <p className='text-info'>@ConsultingMsar</p>
                         
                         </div>}

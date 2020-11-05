@@ -19,6 +19,8 @@ import Fade from 'react-reveal/Fade';
 
 import axios from 'axios'
 
+import Excel from './excel'
+
 
 
 class dashboard extends React.Component{
@@ -417,7 +419,7 @@ class dashboard extends React.Component{
 
          {
            this.props.auth.user ?
-           this.props.auth.user.admin ? 
+           this.props.auth.user.admin? 
 
            <div>
                <div>
@@ -460,6 +462,9 @@ class dashboard extends React.Component{
 
        <br/>
 
+       <Excel/>
+
+   <br/>
            </div>
 
            : '' : ''

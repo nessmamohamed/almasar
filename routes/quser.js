@@ -3,6 +3,7 @@ const express = require('express'),
       Quser = require('../models/quser')
 
 
+
       router.post('/quser', (req, res) => {
           const phone = req.body.quser.phone,
                 titles = req.body.quser.titles
@@ -38,5 +39,7 @@ const express = require('express'),
                
       })
 
+
+     
 
       module.exports = router

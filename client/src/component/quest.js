@@ -153,6 +153,8 @@ class Quest extends React.Component{
             }else{
 
                 const quser = {
+                  Cname,
+                  name,
                   phone,
                   titles: title
                 }
@@ -170,7 +172,8 @@ class Quest extends React.Component{
                         const result = {
                            results: this.state.results,
                            reasons: this.state.reasons,
-                           title
+                           title,
+                           quser
                         }
 
                         this.props.addResult(result)

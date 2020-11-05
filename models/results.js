@@ -13,6 +13,10 @@ const resultsSchema = new mongoose.Schema({
           type: String,
           required: true
      },
+     quser:{
+           type: Object,
+           required: true
+     },
      date: {
           type: Date,
           default: Date.now

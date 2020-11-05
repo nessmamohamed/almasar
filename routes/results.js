@@ -11,7 +11,8 @@ const express = require('express'),
           const newResult = new Results({
               results: req.body.results,
               reasons: req.body.reasons,
-              title: req.body.title
+              title: req.body.title,
+              quser: req.body.quser
           })
 
           

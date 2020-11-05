@@ -16,7 +16,7 @@ import {faBars, faHome , faStickyNote, faPrint, faUsers} from '@fortawesome/free
 
 import Fade from 'react-reveal/Fade';
 
-import { Dropdown } from 'react-bootstrap';
+
 
 class dashboard extends React.Component{
 
@@ -305,6 +305,10 @@ class dashboard extends React.Component{
               {this.props.auth.user? 
           
              <div>
+
+               <div className='row justify-content-center pt-3'>
+                 <div></div>
+               </div>
                    <div className='row justify-content-center pt-3' >
               <div className=''>
                <div className= 'card shadow my-auto ' >

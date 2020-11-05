@@ -2,7 +2,9 @@ const express = require('express'),
       app = express(),
       path = require('path'),
       bodyParser = require('body-parser'),
-      mongoose = require('mongoose')
+      mongoose = require('mongoose'),
+      axios = require('axios'),
+      Visitors = require('./models/visitors')
 
 
        // Allow Access
@@ -57,6 +59,23 @@ const express = require('express'),
          //send static file
        
              res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+
+             axios.get('https://api.ipify.org/?format=json%27')
+             .then(res => {
+              
+              const ip = res.data
+              
+                Visitors.findOne({ip})
+                .then(visitor =>{
+                  if(!visitor){
+                    const newVisitor = new Visitors({
+                      ip
+                    })
+      
+                    newVisitor.save()
+                  }
+                })
+            } )
        
        })
      

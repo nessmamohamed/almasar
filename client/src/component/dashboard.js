@@ -31,7 +31,8 @@ class dashboard extends React.Component{
 
   state ={
     menu: false, 
-    res: []
+    res: [], 
+    ip: 0
   }
 
 
@@ -294,7 +295,7 @@ class dashboard extends React.Component{
                  <div className='card shadow my-auto mx-5 border-none' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-              <h5 className='mr-2'>Visitors: {this.state.ip || 0}</h5> 
+              <h5 className='mr-2'>Visitors: 11</h5> 
                      <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
                    </div>
                  </div>
@@ -304,7 +305,7 @@ class dashboard extends React.Component{
                  <div className='card shadow my-auto mx-5' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-              <h5 className='mr-2'>appliers: {this.props.results.length}</h5> 
+              <h5 className='mr-2'>customers: {this.props.results.length}</h5> 
                      <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
                    </div>
                  </div>
@@ -314,7 +315,7 @@ class dashboard extends React.Component{
                  <div className='card shadow my-auto mx-5' > 
                  <div className='card-body'style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-                     <h5 className='mr-2'>satisfied percent: 60%</h5> 
+                     <h5 className='mr-2'>satisfiction: 50%</h5> 
                      <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
                    </div>
                  </div>

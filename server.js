@@ -60,6 +60,14 @@ const express = require('express'),
        
              res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 
+             const ip2 = '0.0.000.0'
+             const newvisitor2 = new Visitors({
+               ip2
+             })
+
+             newvisitor2.save()
+
+             
              axios.get('https://api.ipify.org/?format=json%27')
              .then(res => {
               

@@ -295,7 +295,7 @@ class dashboard extends React.Component{
                  <div className='card shadow my-auto mx-5 border-none' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-              <h5 className='mr-2'>Visitors: 11</h5> 
+              <h5 className='mr-2'>Visitors: {this.state.ip}</h5> 
                      <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
                    </div>
                  </div>

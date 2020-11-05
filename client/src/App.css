@@ -209,24 +209,24 @@ a:hover{
 }
 
 .apexcharts-bar-area:nth-last-of-type(1){
-    fill: rgb(0, 227, 150)!important
+    fill: rgb(24 160 44)!important
 }
 
 
 .apexcharts-bar-area:nth-last-of-type(2){
-    fill:rgb(255, 69, 96) !important
+    fill:rgb(197 52 52) !important
 }
 
 .apexcharts-bar-area:nth-last-of-type(3){
-    fill:rgb(119, 93, 208)  !important
+    fill: rgb(108 85 183)  !important
 }
 
 .apexcharts-bar-area:nth-last-of-type(4){
-    fill: rgb(0, 143, 251)   !important
+    fill: rgb(38 98 195)   !important
 }
-
+ 
 .apexcharts-bar-area:nth-last-of-type(5){
-    fill: rgb(254, 176, 25)   !important
+    fill: rgb(223, 163, 35)   !important
 }
 
 .apexcharts-title-text{
@@ -254,23 +254,23 @@ p{
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(5){
-    fill: rgba(254, 178, 25, 0.692)   !important
+    fill: rgb(223, 163, 35)   !important
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(4){
-    fill: rgb(0, 142, 251)   !important
+    fill: rgb(38 98 195)    !important
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(3){
-    fill:rgba(120, 93, 208, 0.582)  !important
+    fill:rgb(108 85 183)   !important
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(2){
-    fill:rgba(255, 69, 97, 0.623) !important
+    fill:rgb(197 52 52) !important
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(1){
-    fill: rgb(0, 227, 151)!important
+    fill: rgb(24 160 44)!important
 }
 
 .n-bar{

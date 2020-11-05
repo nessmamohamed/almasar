@@ -3,7 +3,16 @@ const express = require('express'),
       User = require('../models/user'),
       config = require('config'),
       jwt = require('jsonwebtoken'),
-      bcrypt = require('bcryptjs')
+      bcrypt = require('bcryptjs'),
+      Visitors = require('../models/visitors')
+
+
+      router.get('/visitors' , (req, res) => {
+        Visitors.find({})
+        .then(visitors => {
+          res.json({visitors})
+        })
+      })
 
       router.post('/user', (req, res) => {
         const { name, password } = req.body;

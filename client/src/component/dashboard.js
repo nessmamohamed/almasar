@@ -11,17 +11,38 @@ import Dashboard3 from './dashboard3'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import {faBars, faHome , faStickyNote, faPrint, faUsers} from '@fortawesome/free-solid-svg-icons'
+import {faBars, faHome , faStickyNote, faPrint, faUsers, faLongArrowAltUp} from '@fortawesome/free-solid-svg-icons'
 
 
 import Fade from 'react-reveal/Fade';
 
 
+import axios from 'axios'
+
+
 
 class dashboard extends React.Component{
 
+  
+
+  componentDidMount() {
+    this.visitors()
+  }
+
   state ={
-    menu: false
+    menu: false, 
+    res: []
+  }
+
+
+  visitors =()=>{
+       axios.get('/visitors')
+       .then(res => {
+         const ip = res.data.visitors.length
+         this.setState({
+           ip
+         })
+       })
   }
 
   onClickBar =(e) =>{
@@ -52,9 +73,9 @@ class dashboard extends React.Component{
 
     render(){
 
-     
-
-        const quest = this.props.quest[0]
+      const quest = this.props.quest[0]
+      
+   
 
         const question = quest ? quest.questions[0].quest : ''
         const question_ar = quest ? quest.questions[0].quest_ar : ''
@@ -86,74 +107,37 @@ class dashboard extends React.Component{
 
         
         
-
+       console.log(results1.length, results2.length, 2)
      
 
+        
         const state1 = {
-            series: [20, 50 , 70] //[Math.floor(results1.length *100 / results.length), Math.floor(results2.length *100 / results.length), Math.floor(results3.length *100 / results.length)],
-            ,options: {
-              chart: {
-                height: 390,
-                type: 'radialBar',
-              },
-              plotOptions: {
-                radialBar: {
-                  offsetY: 0,
-                  startAngle: 0,
-                  endAngle: 270,
-                  hollow: {
-                    margin: 5,
-                    size: '30%',
-                    background: 'transparent',
-                    image: undefined,
-                  },
-                  dataLabels: {
-                    name: {
-                      show: false,
-                    },
-                    value: {
-                      show: false,
-                    }
-                  }
-                }
-              },
-              colors:['rgb(254, 176, 25)',  'rgb(119, 93, 208)', 'rgb(255, 69, 96)'],
-              labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              
-              legend: {
-                show: true,
-                floating: true,
-                fontSize: '16px',
-                position: 'left',
-                offsetX: -20,
-                offsetY: 10,
-                labels: {
-                  useSeriesColors: true,
-                },
-                markers: {
-                  size: 0
-                },
-                formatter: function(seriesName, opts) {
-                  return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
-                },
-                itemMargin: {
-                  vertical: 3
-                }
-              },
-              responsive: [{
-                breakpoint: 480,
-                options: {
-                  legend: {
-                      show: false
-                  }
-                }
-              }]
+          series: [{
+            data:[results1.length ,
+                results2.length, 
+                results3.length]
+                
+          }],
+          options: {
+            chart: {
+              type: 'bar',
+              height: 350
             },
-          
-          
-          
+            plotOptions:{
+              bar: {
+                horizontal: true
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            xaxis: {
+              categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+            }
             
-            };
+          }
+        
+      }
 
 
             //second chart
@@ -195,11 +179,11 @@ class dashboard extends React.Component{
         //state2
     const state2 ={
         series: [{
-            data:[50, 30, 70, 10 , 20] //[results1_2.length ,
-                //results2_2.length, 
-                //results3_2.length, 
-                //results4_2.length, 
-                //results5_2.length]
+            data:[results1_2.length ,
+                results2_2.length, 
+                results3_2.length, 
+                results4_2.length, 
+                results5_2.length]
                 
           }],
           options: {
@@ -261,7 +245,7 @@ class dashboard extends React.Component{
     const state3 = {
         series: [{
             name: "STOCK ABC",
-            data: [60, 50, 70, 20, 100]
+            data: [results1_3.length, results2_3.length, results3_3.length, results4_3.length, results5_3.length ]
           }],
           options: {
             chart: {
@@ -302,12 +286,41 @@ class dashboard extends React.Component{
         return(
             <div style={{background: '#eceff1', paddingRight: '90px'}} >
               
-              {this.props.auth.user? 
+              {!this.props.auth.user? 
           
              <div>
 
                <div className='row justify-content-center pt-3'>
-                 <div></div>
+                 <div className='card shadow my-auto mx-5 border-none' > 
+                 <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
+                   <div className='d-flex'>
+              <h5 className='mr-2'>Visitors: {this.state.ip || 0}</h5> 
+                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+                   </div>
+                 </div>
+                 </div>
+
+
+                 <div className='card shadow my-auto mx-5' > 
+                 <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
+                   <div className='d-flex'>
+              <h5 className='mr-2'>appliers: {this.props.results.length}</h5> 
+                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+                   </div>
+                 </div>
+                 </div>
+
+
+                 <div className='card shadow my-auto mx-5' > 
+                 <div className='card-body'style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
+                   <div className='d-flex'>
+                     <h5 className='mr-2'>satisfied percent: 60%</h5> 
+                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+                   </div>
+                 </div>
+                 </div>
+
+
                </div>
                    <div className='row justify-content-center pt-3' >
               <div className=''>
@@ -322,8 +335,8 @@ class dashboard extends React.Component{
             <Chart
               options={state1.options}
               series={state1.series}
-              type="radialBar"
-              height='300'
+              type="bar"
+              height='250'
             />
           </div>
         </div>

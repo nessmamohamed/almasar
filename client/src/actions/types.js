@@ -6,6 +6,8 @@ export const DELETE_QUEST = 'DELETE_QUEST'
 export const ADD_RESULT = 'ADD_RESULT'
 export const GET_RESULTS ='GET_RESULTS'
 
+export const GET_VISITORS = 'GET_VISITORS'
+
 export const USER_LOADING = 'USER_LOADING'
 export const USER_LOADED = 'USER_LOADED'
 export const AUTH_ERROR = 'AUTH_ERROR'

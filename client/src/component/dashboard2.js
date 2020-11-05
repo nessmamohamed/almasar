@@ -47,7 +47,7 @@ class dashboard2 extends React.Component{
 
 
         const state1 = {
-            series: [44, 55, 41, 17, 15],
+            series: [results1.length, results2.length, results3.length, results4.length, results5.length],
             options: {
               chart: {
                 type: 'donut',
@@ -100,17 +100,17 @@ class dashboard2 extends React.Component{
 
 
         const state2 = {
-            series: [44, 55, 13, 43, 22],
+            series: [results1_2.length, results2_2.length, results3_2.length, results4_2.length, results5_2.length],
             
             options: {
               chart: {
                 width: 380,
                 type: 'pie',
               },fill: {
-                colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)']
+                colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)']
             },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)'],
+              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
               responsive: [{
                 breakpoint: 480,
                 options: {
@@ -155,7 +155,7 @@ class dashboard2 extends React.Component{
 
         const state3 ={
 
-            series: [14, 23, 21, 17, 15],
+            series: [results1_3.length, results2_3.length, results3_3.length, results4_3.length, results5_3.length],
             options: {
               chart: {
                 type: 'polarArea',
@@ -167,7 +167,7 @@ class dashboard2 extends React.Component{
                 opacity: 0.8
               },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)'],
+              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
               responsive: [{
                 breakpoint: 480,
                 options: {
@@ -211,70 +211,21 @@ class dashboard2 extends React.Component{
         }) : 0
 
 
-        const state4 = {
-         
-          series: [44, 55, 41, 17, 15],
+        const state4= {
+          series: [results1_4.length, results2_4.length, results3_4.length, results4_4.length, results5_4.length],
           options: {
             chart: {
-              width: 380,
               type: 'donut',
-              dropShadow: {
-                enabled: true,
-                color: '#111',
-                top: -1,
-                left: 3,
-                blur: 3,
-                opacity: 0.2
-              }
-            },
-            stroke: {
-              width: 0,
-            },
-            plotOptions: {
-              pie: {
-                donut: {
-                  labels: {
-                    show: true,
-                    total: {
-                      showAlways: true,
-                      show: true
-                    }
-                  }
-                }
-              }
+            },fill: {
+                colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)']
             },
             labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-            colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)'],
-            dataLabels: {
-              dropShadow: {
-                blur: 3,
-                opacity: 0.8
-              }
-            },
-            fill: {
-            type: 'pattern',
-              opacity: 1,
-              pattern: {
-                enabled: true,
-                style: ['verticalLines', 'squares', 'horizontalLines', 'circles','slantedLines'],
-              },
-            },
-            states: {
-              hover: {
-                filter: 'none'
-              }
-            },
-            theme: {
-              palette: 'palette2'
-            },
-            title: {
-              text: "Favourite Movie Type"
-            },
+            colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
             responsive: [{
               breakpoint: 480,
               options: {
                 chart: {
-                  width: 200
+                  width: 100
                 },
                 legend: {
                   position: 'bottom'
@@ -283,12 +234,7 @@ class dashboard2 extends React.Component{
             }]
           },
         
-        
-
-        
-        
-          
-          };
+      }
 
 
 
@@ -334,7 +280,7 @@ class dashboard2 extends React.Component{
                          <div className='mixed-chart'>
                              
                              <Chart
-                             options={state3.options} series={state3.series} type="polarArea" height='170' />
+                             options={state3.options} series={state3.series} type="pie" height='170' />
                          </div>
                      </div>
                  </div>

@@ -56,51 +56,70 @@ class dashboard3 extends React.Component{
 
      
 
-        const state1 = {
-            series: [
-                {
-                  data: [
-                    {
-                      x: localStorage.getItem('language') === 'en' ? answers[0] : answers_ar[0],
-                      y: 218
-                    },
-                    {
-                      x: localStorage.getItem('language') === 'en' ? answers[1] : answers_ar[1],
-                      y: 149
-                    },
-                    {
-                      x: localStorage.getItem('language') === 'en' ? answers[2] : answers_ar[2],
-                      y: 184
-                    },
-                    {
-                      x: localStorage.getItem('language') === 'en' ? answers[3] : answers_ar[3],
-                      y: 55
-                    },
-                    {
-                      x: localStorage.getItem('language') === 'en' ? answers[4] : answers_ar[4],
-                      y: 84
-                    }
-                  ]
-                }
-              ],
-              options: {
-                legend: {
+         //state2
+         const state1 ={
+       
+          series: [
+              {
+               
+                data: [results1.length, results2.length, results3.length, results4.length, results5.length]
+              }
+            ],
+            options: {
+              chart: {
+                height: 350,
+                type: 'line',
+                dropShadow: {
+                  enabled: true,
+                  color: '#000',
+                  top: 18,
+                  left: 7,
+                  blur: 10,
+                  opacity: 0.2
+                },
+                toolbar: {
                   show: false
-                },
-                chart: {
-                  height: 350,
-                  type: 'treemap'
-                },
-                title: {
-                  text: 'Basic Treemap'
                 }
               },
-            
-            
-            
+              colors: ['black'],
+              dataLabels: {
+                enabled: true,
+              },
+              stroke: {
+                curve: 'smooth'
+              },
+              grid: {
+                borderColor: '#e7e7e7',
+                row: {
+                  colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                  opacity: 0.5
+                },
+              },
+              markers: {
+                size: 1
+              },
+              xaxis: {
+                categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+       
+              },
+              yaxis: {
+                
+              
+              },
+              legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+              }
+            },
           
-            
-            };
+          
+          
+  
+          
+      }
 
 
             //second chart
@@ -145,7 +164,7 @@ class dashboard3 extends React.Component{
         series: [
             {
              
-              data: [28, 29, 33, 36, 32]
+              data: [results1_2.length, results2_2.length, results3_2.length, results4_2.length, results5_2.length]
             }
           ],
           options: {
@@ -221,7 +240,7 @@ class dashboard3 extends React.Component{
             <Chart
               options={state1.options}
               series={state1.series}
-              type="treemap" height={250}
+              type="line" height={250}
             />
           </div>
         </div>

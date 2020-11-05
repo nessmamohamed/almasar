@@ -60,30 +60,7 @@ const express = require('express'),
        
              res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 
-             const ip2 = '0.0.000.0'
-             const newvisitor2 = new Visitors({
-               ip: ip2
-             })
-
-             newvisitor2.save()
-
-
-             axios.get('https://api.ipify.org/?format=json%27')
-             .then(res => {
-              
-              const ip = res.data
-              
-                Visitors.findOne({ip})
-                .then(visitor =>{
-                  if(!visitor){
-                    const newVisitor = new Visitors({
-                      ip
-                    })
-      
-                    newVisitor.save()
-                  }
-                })
-            } )
+           
        
        })
      

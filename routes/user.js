@@ -7,6 +7,25 @@ const express = require('express'),
       Visitors = require('../models/visitors')
 
 
+
+      router.post('/visitors', (req, res) => {
+  
+        const ip = req.body.ip
+
+        Visitors.findOne({ip})
+        .then(visitor => {
+          if(!visitor) {
+            const newVisitor = new Visitors({
+              ip
+            })
+
+            newVisitor.save()
+          }
+        })
+        
+      })
+
+
       router.get('/visitors' , (req, res) => {
         Visitors.find({})
         .then(visitors => {

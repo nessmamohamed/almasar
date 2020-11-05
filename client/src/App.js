@@ -22,10 +22,23 @@ import {connect} from 'react-redux'
 
 import icon from './component/images/m-icon.png'
 
+import axios from 'axios'
+
 
 
 
 class App extends React.Component {
+
+  componentDidMount(){
+    axios.get('https://api.ipify.org/?format=json%27')
+        .then(res => {
+          const ip = res.data
+
+         setTimeout(() => {
+           axios.post('/visitors',{ip})
+         }, 1000);
+        })
+  }
   
   state={}
 

@@ -286,7 +286,7 @@ class dashboard extends React.Component{
         return(
             <div style={{background: '#eceff1', paddingRight: '90px'}} >
               
-              {!this.props.auth.user? 
+              {this.props.auth.user? 
           
              <div>
 

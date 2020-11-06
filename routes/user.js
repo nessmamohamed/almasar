@@ -42,7 +42,7 @@ const express = require('express'),
         }
       
         // Check for existing user
-        User.findOne({ name })
+        User.findOne({name})
           .then(user => {
             if(user) return res.status(400).json({ msg: 'name already exists' });
       
@@ -83,6 +83,30 @@ const express = require('express'),
             console.log(data)
           })
       });
+
+
+      router.get('/usersAll' , (req, res) => {
+        User.find({})
+        .then(users => {
+          res.json({users})
+        })
+      })
+
+      router.post('/userdel', (req, res ) => {
+        const id = req.body.id
+
+        
+
+        User.findById(id)
+        .then(user => {
+         user.remove()
+         
+        User.find({})
+        .then(users => {
+          res.json({users})
+        })
+        })
+      })
     
     
     

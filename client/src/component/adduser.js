@@ -23,7 +23,8 @@ class AddUser extends React.Component{
         e.preventDefault()
 
         this.setState({
-            err: false
+            err: false,
+            success: false
         })
 
         const {name, password, confirm_password} = this.state
@@ -40,6 +41,15 @@ class AddUser extends React.Component{
             
 
             this.props.register({name, password})
+
+            setTimeout(() => {
+                if(!this.props.error.msg){
+                    this.setState({
+                        success: 'user added .. ', 
+                        err: false
+                    })
+                }
+            }, 1000);
         }
     }
     render(){
@@ -50,6 +60,16 @@ class AddUser extends React.Component{
                        <div className='card-header bg-success text-light'> Add User</div>
                             
                        <div className='card-body'>
+
+                       <div className="alert alert-danger" role="alert" style={{background: 'white', border: 'white'}}>
+                    {this.state.err || this.props.error.msg.msg}
+                   </div>
+
+                   <div className="alert alert-success" role="alert" style={{background: 'white', border: 'white'}}>
+                    {this.state.success ? this.state.success  : ''}
+                   </div>
+
+
                        <form onSubmit = {this.onSubmit} style={{width: '80%', margin: '0 auto'}}>
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
@@ -76,7 +96,7 @@ class AddUser extends React.Component{
 }
 
 const mapStateToProps =(state) => ({
-
+ error: state.error
 })
 
 export default connect(mapStateToProps, {register})(AddUser)

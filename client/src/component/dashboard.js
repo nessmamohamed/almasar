@@ -579,11 +579,7 @@ const onPrint = (e) => {
 
        <br/>
 
-       <div>
-       <button className='btn btn-light text-light' onClick={this.onLogout}  style={{background: 'none', border: 'none'}} >{localStorage.getItem('language') === 'en' ? 'Logout' : 'تسجيل خروج'}</button>
-       </div>
-
-       <br/>
+      
 
        <Excel/>
 
@@ -600,6 +596,14 @@ const onPrint = (e) => {
          <FontAwesomeIcon icon={faPrint} color='white' style={{fontSize: '20px'}}/> Print
          </button>
        </div>
+
+       <br/>
+
+       <div>
+       <button className='btn btn-light text-light' onClick={this.onLogout}  style={{background: 'none', border: 'none'}} >{localStorage.getItem('language') === 'en' ? 'Logout' : 'تسجيل خروج'}</button>
+       </div>
+
+       <br/>
 
        
         

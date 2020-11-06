@@ -247,7 +247,7 @@ class dashboard3 extends React.Component{
         </div>
                </div>
 
-               <div className='ml-md-5  'style={{width: '30%' , minWidth:' 400px'}}>
+               <div className='ml-md-5  'style={{width: '30%' , minWidth:'fit-content'}}>
                    <div className='card shadow  ' >
                        <div className='card-body text-center '>
                        <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>

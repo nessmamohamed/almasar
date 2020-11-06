@@ -30,10 +30,10 @@ class dashboard extends React.Component{
   componentDidMount() {
     
 
-    setTimeout(() => {
+   setTimeout(() => {
       if(!this.props.auth.user){
-        window.location.href= '/admin'
-      }
+       window.location.href= '/admin'
+    }
     }, 3000);
 
     this.visitors()
@@ -127,33 +127,69 @@ class dashboard extends React.Component{
      
 
         
-        const state1 = {
-          series: [{
-            data:[results1.length ,
-                results2.length, 
-                results3.length]
-                
-          }],
+       const state1 ={
+       
+        series: [
+            {
+             
+              data: [results1.length, results2.length, results3.length]
+            }
+          ],
           options: {
             chart: {
-              type: 'bar',
-              height: 350
-            },
-            plotOptions:{
-              bar: {
-                horizontal: true
+              height: 350,
+              type: 'line',
+              dropShadow: {
+                enabled: true,
+                color: '#000',
+                top: 18,
+                left: 7,
+                blur: 10,
+                opacity: 0.2
+              },
+              toolbar: {
+                show: false
               }
             },
+            colors: ['green'],
             dataLabels: {
-              enabled: false
+              enabled: true,
+            },
+            stroke: {
+              curve: 'smooth'
+            },
+            grid: {
+              borderColor: '#e7e7e7',
+              row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+              },
+            },
+            markers: {
+              size: 1
             },
             xaxis: {
               categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-            }
+     
+            },
+            yaxis: {
+              
             
-          }
+            },
+            legend: {
+              position: 'top',
+              horizontalAlign: 'right',
+              floating: true,
+              offsetY: -25,
+              offsetX: -5
+            }
+          },
         
-      }
+        
+        
+
+        
+    }
 
 
             //second chart
@@ -209,7 +245,7 @@ class dashboard extends React.Component{
             },
             plotOptions:{
               bar: {
-                horizontal: false
+                horizontal: true
               }
             },
             dataLabels: {
@@ -349,6 +385,23 @@ const satisfied = merged.filter(data =>{
 
 
 
+const onPrint = (e) => {
+  e.preventDefault()
+
+  const page = document.body.innerHTML
+  const printContent = document.getElementById('charts').innerHTML
+  document.body.innerHTML = printContent
+
+  setTimeout(() => {
+    window.print()
+
+  document.body.innerHTML = page
+  }, 5000);
+  
+
+
+}
+
 
 
 
@@ -358,6 +411,8 @@ const satisfied = merged.filter(data =>{
              
           
              <div>
+
+               <div id='charts'>
 
                <div className='row justify-content-center pt-3'>
                  <div className='card shadow my-auto mx-5 border-none' > 
@@ -404,7 +459,7 @@ const satisfied = merged.filter(data =>{
             <Chart
               options={state1.options}
               series={state1.series}
-              type="bar"
+              type="line"
               height='250'
             />
           </div>
@@ -412,7 +467,7 @@ const satisfied = merged.filter(data =>{
         </div>
                </div>
 
-               <div className='ml-md-5  'style={{width: '30%' , minWidth:' 400px'}}>
+               <div className='ml-md-5  'style={{width: '30%' , minWidth:'fit-content'}}>
                    <div className='card shadow  ' >
                        <div className='card-body text-center mt-5'>
                        <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
@@ -432,7 +487,7 @@ const satisfied = merged.filter(data =>{
                    </div>
                </div>
 
-               <div className= 'ml-md-5 ' style={{width: '30%' , minWidth:' 400px'}}>
+               <div className= 'ml-md-5 ' style={{width: '30%' , minWidth:'fit-content'}}>
                    <div className='card shadow  ' >
                        <div className='card-body text-center mt-3'>
                        <h6>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
@@ -448,6 +503,8 @@ const satisfied = merged.filter(data =>{
 
               <Dashboard2/>
               <Dashboard3/>
+
+              </div>
 
              <Fade>
              <div className= 'n-bar text-center pt-4' style={{display: !this.state.menu ? 'block' : 'none'}}>
@@ -539,7 +596,9 @@ const satisfied = merged.filter(data =>{
 
                 
        <div>
+         <button onClick={onPrint} className='btn btn-light text-light' style={{background: 'none', border: 'none'}}>
          <FontAwesomeIcon icon={faPrint} color='white' style={{fontSize: '20px'}}/> Print
+         </button>
        </div>
 
        

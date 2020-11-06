@@ -28,15 +28,28 @@ class dashboard extends React.Component{
   
 
   componentDidMount() {
+    
+
+    setTimeout(() => {
+      if(!this.props.auth.user){
+        window.location.href= '/admin'
+      }
+    }, 3000);
+
     this.visitors()
+   
   }
 
   state ={
     menu: false, 
     res: [], 
-    ip: 0
+    ip: 0,
+    dataTotal: []
   }
 
+
+  
+  
 
   visitors =()=>{
        axios.get('/visitors')
@@ -284,12 +297,65 @@ class dashboard extends React.Component{
             }
           },
     }
+
+
+
+    //data
+
+
+    
+
+     console.log(this.state.dataTotal)
+
+
+     const quest_ = this.props.quest[0]
+
+  const question_ = quest_ ? quest_.questions.map(quests => {
+      return quests.quest
+  }): ''
+
+
+  
+  const quserdata = this.props.results.map(row => 
+    
+
+    {
+
+       const data =[
        
+        row.results[question_[0]],
+        row.results[question_[1]],
+        row.results[question_[2]],
+        row.results[question_[3]],
+        row.results[question_[4]],
+        row.results[question_[5]],
+        row.results[question_[6]],
+        row.results[question_[7]],
+        row.results[question_[8]]
+      ]
+     
+      
+return data
+  
+})
+
+
+var merged = [].concat.apply([], quserdata)
+
+
+const satisfied = merged.filter(data =>{
+  return (data === 'satisfied') || (data === 'extremely satisfied') || (data === 'راضي') || (data === 'راضي جدا')
+})
+
+
+
+
+
 
         return(
             <div style={{background: '#eceff1', paddingRight: '90px'}} >
               
-              {this.props.auth.user? 
+             
           
              <div>
 
@@ -317,7 +383,7 @@ class dashboard extends React.Component{
                  <div className='card shadow my-auto mx-5' > 
                  <div className='card-body'style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-                     <h5 className='mr-2'>satisfiction: 65%</h5> 
+              <h5 className='mr-2'>satisfiction: {Math.floor(satisfied.length * 100 / merged.length) || 0} %</h5> 
                      <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
                    </div>
                  </div>
@@ -482,7 +548,7 @@ class dashboard extends React.Component{
          
                </div>
               </Fade>
-             </div>: ''}
+             </div>
               
             </div>
         )

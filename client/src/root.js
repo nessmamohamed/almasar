@@ -9,7 +9,7 @@ import Dashboard from './component/dashboard'
 import Msg from './component/msg'
 import AddUser from './component/adduser'
 import Login from './component/login'
-import results from './component/results'
+
 
 import store from './store'
 import {Provider} from 'react-redux'

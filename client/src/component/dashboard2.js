@@ -52,10 +52,10 @@ class dashboard2 extends React.Component{
               chart: {
                 type: 'donut',
               },fill: {
-                  colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)']
+                  colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)']
               },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(254, 176, 25)', 'rgb(0, 143, 251)', 'rgb(119, 93, 208)', 'rgb(255, 69, 96)', 'rgb(0, 227, 150)'],
+              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
               responsive: [{
                 breakpoint: 480,
                 options: {

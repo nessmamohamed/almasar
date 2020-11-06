@@ -34,7 +34,6 @@ class excel extends React.Component{
         
             {
 
-               
                const ress = row.reasons.map(res => {
                    return Object.values(res)
                })

@@ -1,4 +1,5 @@
 {
     
-    "jwtSecret": "sl_myjwtSecret"
+    "jwtSecret": "sl_myjwtSecret",
+    "authToken": "eab9e7758be8471f8ac3d1e592f31caf"
 }

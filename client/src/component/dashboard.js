@@ -30,11 +30,9 @@ class dashboard extends React.Component{
   componentDidMount() {
     
 
-   setTimeout(() => {
-      if(!this.props.auth.user){
-       window.location.href= '/admin'
-    }
-    }, 3000);
+  setTimeout(() => {
+    if(!this.props.auth.user){
+       window.location.href= '/admin'}}, 3000);
 
     this.visitors()
    

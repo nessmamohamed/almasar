@@ -140,7 +140,11 @@ class excel extends React.Component{
                       return da = 'غير راضي'
                   }else if(da === 'extremely dissatisfied'){
                       return da = 'غير راضي جدا'
-                  }
+                  }else if(da === 'accurate'){
+                    return da = 'دقيق'
+                }else if(da === 'not accurate'){
+                    return da = 'غير دقيق'
+                }
                   else{
                       return da
                   }

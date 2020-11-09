@@ -209,24 +209,24 @@ a:hover{
 }
 
 .apexcharts-bar-area:nth-last-of-type(1){
-    fill: rgb(24 160 44)!important
+    fill: rgb(197, 52, 52)!important
 }
 
 
 .apexcharts-bar-area:nth-last-of-type(2){
-    fill:rgb(197 52 52) !important
+    fill:rgb(108, 85, 183)  !important
 }
 
 .apexcharts-bar-area:nth-last-of-type(3){
-    fill: rgb(108 85 183)  !important
+    fill: rgb(38, 98, 195)   !important
 }
 
 .apexcharts-bar-area:nth-last-of-type(4){
-    fill: rgb(38 98 195)   !important
+    fill: rgb(223, 163, 35)    !important
 }
  
 .apexcharts-bar-area:nth-last-of-type(5){
-    fill: rgb(223, 163, 35)   !important
+    fill: rgb(24, 160, 44)   !important
 }
 
 .apexcharts-title-text{
@@ -253,25 +253,7 @@ p{
     margin-bottom: .5rem !important;
 }
 
-.apexcharts-treemap-rect:nth-last-of-type(5){
-    fill: rgb(223, 163, 35)   !important;
-}
 
-.apexcharts-treemap-rect:nth-last-of-type(4){
-    fill: rgb(38 98 195)    !important
-}
-
-.apexcharts-treemap-rect:nth-last-of-type(3){
-    fill:rgb(108 85 183)   !important
-}
-
-.apexcharts-treemap-rect:nth-last-of-type(2){
-    fill:rgb(197 52 52) !important
-}
-
-.apexcharts-treemap-rect:nth-last-of-type(1){
-    fill: rgb(24 160 44)!important
-}
 
 .apexcharts-pie-area {
     stroke: rgba(255, 251, 251, 0.404) !important
@@ -335,3 +317,7 @@ transform: skewY(10deg);
             margin-top: 200px !important;
         }
     }
+
+ .exportCSV{
+    display: none;
+}    

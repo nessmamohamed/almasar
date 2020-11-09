@@ -58,10 +58,10 @@ class dashboard2 extends React.Component{
               chart: {
                 type: 'donut',
               },fill: {
-                  colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)']
+                  colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)']
               },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+              colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
               responsive: [{
                 breakpoint: 480,
                 options: {
@@ -118,10 +118,10 @@ class dashboard2 extends React.Component{
                 width: 380,
                 type: 'pie',
               },fill: {
-                colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)']
+                colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)']
             },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+              colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
               responsive: [{
                 breakpoint: 480,
                 options: {
@@ -179,10 +179,10 @@ class dashboard2 extends React.Component{
               stroke: {
                 colors: ['#fff']
               },fill: {
-                colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+                colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
               },
               labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-              colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+              colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
               responsive: [{
                 breakpoint: 480,
                 options: {
@@ -238,11 +238,11 @@ class dashboard2 extends React.Component{
             chart: {
               type: 'donut',
             },fill: {
-                colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+                colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
                 stroke:'black'
             },
             labels: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-            colors:['rgb(223, 163, 35)', 'rgb(38, 98, 195)', 'rgb(108 ,85 ,183)', 'rgb(197, 52 ,52)', 'rgb(24, 160, 44)'],
+            colors:['rgb(24, 160, 44)', 'rgb(223, 163, 35) ', 'rgb(38, 98, 195)', 'rgb(108, 85, 183)', 'rgb(197, 52, 52)'],
             responsive: [{
               breakpoint: 480,
               options: {

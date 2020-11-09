@@ -59,63 +59,33 @@ class dashboard3 extends React.Component{
          //state2
          const state1 ={
        
-          series: [
-              {
-               
-                data: [results1.length, results2.length, results3.length, results4.length, results5.length]
-              }
-            ],
-            options: {
-              chart: {
-                height: 350,
-                type: 'line',
-                dropShadow: {
-                  enabled: true,
-                  color: '#000',
-                  top: 18,
-                  left: 7,
-                  blur: 10,
-                  opacity: 0.2
-                },
-                toolbar: {
-                  show: false
-                }
-              },
-              colors: ['black'],
-              dataLabels: {
-                enabled: true,
-              },
-              stroke: {
-                curve: 'smooth'
-              },
-              grid: {
-                borderColor: '#e7e7e7',
-                row: {
-                  colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                  opacity: 0.5
-                },
-              },
-              markers: {
-                size: 1
-              },
-              xaxis: {
-                categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-       
-              },
-              yaxis: {
+          series: [{
+            data:[results1.length ,
+                results2.length, 
+                results3.length, 
+                results4.length, 
+                results5.length]
                 
-              
-              },
-              legend: {
-                position: 'top',
-                horizontalAlign: 'right',
-                floating: true,
-                offsetY: -25,
-                offsetX: -5
+          }],
+          options: {
+            chart: {
+              type: 'bar',
+              height: 350
+            },
+            plotOptions:{
+              bar: {
+                horizontal: false
               }
             },
-          
-          
+            dataLabels: {
+              enabled: false
+            },
+            xaxis: {
+              categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+            }
+            
+          }
+  
           
   
           
@@ -161,64 +131,33 @@ class dashboard3 extends React.Component{
         //state2
     const state2 ={
        
-        series: [
-            {
-             
-              data: [results1_2.length, results2_2.length, results3_2.length, results4_2.length, results5_2.length]
-            }
-          ],
-          options: {
-            chart: {
-              height: 350,
-              type: 'line',
-              dropShadow: {
-                enabled: true,
-                color: '#000',
-                top: 18,
-                left: 7,
-                blur: 10,
-                opacity: 0.2
-              },
-              toolbar: {
-                show: false
-              }
-            },
-            colors: ['#77B6EA'],
-            dataLabels: {
-              enabled: true,
-            },
-            stroke: {
-              curve: 'smooth'
-            },
-            grid: {
-              borderColor: '#e7e7e7',
-              row: {
-                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                opacity: 0.5
-              },
-            },
-            markers: {
-              size: 1
-            },
-            xaxis: {
-              categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-     
-            },
-            yaxis: {
-              
+      series: [{
+        data:[results1_2.length ,
+            results2_2.length, 
+            results3_2.length, 
+            results4_2.length, 
+            results5_2.length]
             
-            },
-            legend: {
-              position: 'top',
-              horizontalAlign: 'right',
-              floating: true,
-              offsetY: -25,
-              offsetX: -5
-            }
-          },
+      }],
+      options: {
+        chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions:{
+          bar: {
+            horizontal: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
+        }
         
-        
-        
+      }
+
 
         
     }
@@ -227,8 +166,8 @@ class dashboard3 extends React.Component{
 
         return(
             <div style={{background: '#eceff1'}} >
-              <div className='row justify-content-center pt-3'>
-              <div className=''>
+              <div className='row justify-content-center pt-3 padrow'>
+              <div className='mr-5 mt-3'>
                <div className= 'card shadow my-auto ' style={{width: '700px'}} >
                <div className="card-body text-center " >
         
@@ -240,14 +179,14 @@ class dashboard3 extends React.Component{
             <Chart
               options={state1.options}
               series={state1.series}
-              type="line" height={250}
+              type="bar" height={250}
             />
           </div>
         </div>
         </div>
                </div>
 
-               <div className='ml-md-5  'style={{width: '700px' , minWidth:'fit-content'}}>
+               <div className='mr-5 mt-3 'style={{width: '700px' , minWidth:'fit-content'}}>
                    <div className='card shadow  ' >
                        <div className='card-body text-center '>
                        <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
@@ -259,7 +198,7 @@ class dashboard3 extends React.Component{
 <Chart
   options={state2.options}
   series={state2.series}
-  type="line"
+  type="bar"
   height='250'
 />
 </div>

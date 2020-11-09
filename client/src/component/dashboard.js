@@ -128,65 +128,30 @@ class dashboard extends React.Component{
 
         
        const state1 ={
-       
-        series: [
-            {
-             
-              data: [results1.length, results2.length, results3.length]
-            }
-          ],
+        series: [{
+            data:[results1.length ,
+                results2.length, 
+                results3.length]
+                
+          }],
           options: {
             chart: {
-              height: 350,
-              type: 'line',
-              dropShadow: {
-                enabled: true,
-                color: '#000',
-                top: 18,
-                left: 7,
-                blur: 10,
-                opacity: 0.2
-              },
-              toolbar: {
-                show: false
+              type: 'bar',
+              height: 350
+            },
+            plotOptions:{
+              bar: {
+                horizontal: false
               }
             },
-            colors: ['green'],
             dataLabels: {
-              enabled: true,
-            },
-            stroke: {
-              curve: 'smooth'
-            },
-            grid: {
-              borderColor: '#e7e7e7',
-              row: {
-                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                opacity: 0.5
-              },
-            },
-            markers: {
-              size: 1
+              enabled: false
             },
             xaxis: {
               categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
-     
-            },
-            yaxis: {
-              
-            
-            },
-            legend: {
-              position: 'top',
-              horizontalAlign: 'right',
-              floating: true,
-              offsetY: -25,
-              offsetX: -5
             }
-          },
-        
-        
-        
+            
+          }
 
         
     }
@@ -294,54 +259,42 @@ class dashboard extends React.Component{
         return result.results[question3] ===  answers_ar3[4] || result.results[question3] ===  answers3[4]
     }):0
 
-    const state3 = {
-        series: [{
-            name: "STOCK ABC",
-            data: [results1_3.length, results2_3.length, results3_3.length, results4_3.length, results5_3.length ]
-          }],
-          options: {
-            chart: {
-              type: 'area',
-              height: 350,
-              zoom: {
-                enabled: false
-              }
-            },
-            dataLabels: {
-              enabled: false
-            },
-            stroke: {
-              curve: 'straight'
-            },
-            
-            title: {
-              text: 'Fundamental Analysis of Stocks',
-              align: 'left'
-            },
-            subtitle: {
-              text: 'Price Movements',
-              align: 'left'
-            },
-            xaxis: {
-              categories:  localStorage.getItem('language') === 'en' ? [...answers3] : [...answers_ar3]
-            },
-            yaxis: {
-              opposite: true
-            },
-            legend: {
-              horizontalAlign: 'left'
+    const state3 ={
+      series: [{
+          data:[results1_3.length ,
+              results2_3.length, 
+              results3_3.length, 
+              results4_3.length, 
+              results5_3.length]
+              
+        }],
+        options: {
+          chart: {
+            type: 'bar',
+            height: 350
+          },
+          plotOptions:{
+            bar: {
+              horizontal: false
             }
           },
-    }
+          dataLabels: {
+            enabled: false
+          },
+          xaxis: {
+            categories: localStorage.getItem('language') === 'en' ? [...answers3] : [...answers_ar3],
+          }
+          
+        }
 
-
+      
+  }
 
     //data
 
 
     
 
-     console.log(this.state.dataTotal)
 
 
      const quest_ = this.props.quest[0]
@@ -380,7 +333,7 @@ var merged = [].concat.apply([], quserdata)
 
 
 const satisfied = merged.filter(data =>{
-  return (data === 'satisfied') || (data === 'extremely satisfied') || (data === 'راضي') || (data === 'راضي جدا')
+  return (data === 'satisfied') || (data === 'extremely satisfied') || (data === 'راضي') || (data === 'راضي جدا') || (data === 'accurate') || (data === 'دقيق')
 })
 
 
@@ -419,7 +372,7 @@ const onPrint = (e) => {
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
               <h5 className='mr-2'>Visitors: {this.state.ip}</h5> 
-                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+                 
                    </div>
                  </div>
                  </div>
@@ -428,8 +381,8 @@ const onPrint = (e) => {
                  <div className='card shadow my-auto mx-5' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-              <h5 className='mr-2'>customers: {this.props.results.length}</h5> 
-                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+              <h5 className='mr-2'>Customers: {this.props.results.length}</h5> 
+                  
                    </div>
                  </div>
                  </div>
@@ -438,8 +391,8 @@ const onPrint = (e) => {
                  <div className='card shadow my-auto mx-5' > 
                  <div className='card-body'style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
-              <h5 className='mr-2'>satisfiction: {Math.floor(satisfied.length * 100 / merged.length) || 0} %</h5> 
-                     <FontAwesomeIcon icon={faLongArrowAltUp} color='blue' style={{fontSize: '25px'}}/>
+              <h5 className='mr-2'>Satisfaction: {Math.floor(satisfied.length * 100 / merged.length) || 0} %</h5> 
+                    
                    </div>
                  </div>
                  </div>
@@ -448,10 +401,10 @@ const onPrint = (e) => {
                </div>
                    <div className='row justify-content-center pt-3' >
               <div className=''>
-               <div className= 'card shadow my-auto ' >
+               <div className= 'card shadow my-auto ' style={{height: '100%', width: '350px'}}>
                <div className="card-body text-center " >
         
-               <h6>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
+               <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
           <div className="mixed-chart">
 
          
@@ -459,7 +412,7 @@ const onPrint = (e) => {
             <Chart
               options={state1.options}
               series={state1.series}
-              type="line"
+              type="bar"
               height='250'
             />
           </div>
@@ -468,9 +421,9 @@ const onPrint = (e) => {
                </div>
 
                <div className='ml-md-5  'style={{width: '30%' , minWidth:'fit-content'}}>
-                   <div className='card shadow  ' >
-                       <div className='card-body text-center mt-5'>
-                       <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
+                   <div className='card shadow  ' style={{height: '100%'}}>
+                       <div className='card-body text-center '>
+                       <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
 
                        <div className="mixed-chart">
 
@@ -488,12 +441,12 @@ const onPrint = (e) => {
                </div>
 
                <div className= 'ml-md-5 ' style={{width: '30%' , minWidth:'fit-content'}}>
-                   <div className='card shadow  ' >
-                       <div className='card-body text-center mt-3'>
-                       <h6>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
+                   <div className='card shadow  ' style={{height: '100%', width: '700px'}}>
+                       <div className='card-body text-center '>
+                       <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
                            <div className='mixed-chart'>
                                <Chart
-                               options={state3.options} series={state3.series} type="area" 
+                               options={state3.options} series={state3.series} type="bar" 
                                height='250'/>
                            </div>
                        </div>

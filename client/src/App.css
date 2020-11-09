@@ -254,7 +254,7 @@ p{
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(5){
-    fill: rgb(223, 163, 35)   !important
+    fill: rgb(223, 163, 35)   !important;
 }
 
 .apexcharts-treemap-rect:nth-last-of-type(4){
@@ -271,6 +271,10 @@ p{
 
 .apexcharts-treemap-rect:nth-last-of-type(1){
     fill: rgb(24 160 44)!important
+}
+
+.apexcharts-pie-area {
+    stroke: rgba(29, 28, 28, 0.404) !important
 }
 
 .n-bar{
@@ -323,4 +327,11 @@ transform: skewY(10deg);
     height: 500px;
     bottom: -250px;
     transform: skewY(-11deg);
+    }
+
+
+@media (max-width: 1300px){
+        .padrow{
+            margin-top: 200px !important;
+        }
     }

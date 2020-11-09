@@ -11,7 +11,7 @@ import Dashboard3 from './dashboard3'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import {faBars, faHome , faStickyNote, faPrint, faUsers, faLongArrowAltUp} from '@fortawesome/free-solid-svg-icons'
+import {faBars, faHome , faStickyNote, faPrint, faUsers} from '@fortawesome/free-solid-svg-icons'
 
 
 import Fade from 'react-reveal/Fade';

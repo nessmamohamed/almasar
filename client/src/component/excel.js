@@ -9,7 +9,8 @@ class excel extends React.Component{
 
     state = {
         question_ar: [],
-        show: false
+        show: false,
+         dataTotal:[]
     }
 
 
@@ -126,11 +127,36 @@ class excel extends React.Component{
             
         ]
 
+
+        let data_ar = this.state.dataTotal.map(data => {
+            const da_ar =  data.map(da =>{
+                  if(da === 'extremely satisfied'){
+                      return da = 'راضي جدا'
+                  }else if(da === 'satisfied'){
+                      return da = 'راضي'
+                  }else if(da === 'neutral'){
+                      return da = 'مقبول'
+                  }else if(da === 'dissatisfied'){
+                      return da = 'غير راضي'
+                  }else if(da === 'extremely dissatisfied'){
+                      return da = 'غير راضي جدا'
+                  }
+                  else{
+                      return da
+                  }
+              })
+  
+              return da_ar
+              
+          })
         
 
-        const csvData = this.state.dataTotal ?  [row, ...this.state.dataTotal] : []
+        const csvData = this.state.dataTotal ?  [row, ...data_ar] : []
 
         
+      
+
+        console.log(csvData)
 
         return(
             <div>

@@ -396,7 +396,7 @@ const onPrint = (e) => {
  
   const page = document.body.innerHTML
   
-  const printContent = document.getElementById('charts').innerHTML
+  const printContent = document.getElementById('charts2').innerHTML
   document.body.innerHTML = printContent
 
   setTimeout(() => {
@@ -416,7 +416,7 @@ const printpdf = (e) => {
   e.preventDefault()
 
 
-  const printContent = document.getElementById('charts').innerHTML
+  const printContent = document.getElementById('charts2').innerHTML
   
   
 
@@ -445,7 +445,7 @@ const printpdf = (e) => {
         return(
             <div  >
               
-              <div className='mx-auto text-center ' style={{background: 'white'}}> 
+              <div className='mx-auto text-center ' style={{background: 'white'}} id= 'charts2'> 
                    <img id='imgl'  width='200px' src={logo}/>
                  </div>
           
@@ -494,7 +494,7 @@ const printpdf = (e) => {
         
                <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
         {results1.length > 0 ? 
-          <div className="mixed-chart">
+          <div className="mixed-chart mb-4">
 
          
 

@@ -334,7 +334,7 @@ transform: skewY(10deg);
             
         }
         .row3{
-            padding-top: 100px;
+            padding-top: 100px !important;
         }
     }
 

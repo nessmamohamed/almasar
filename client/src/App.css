@@ -312,6 +312,9 @@ transform: skewY(10deg);
 
 
 @media (max-width: 1300px){
+    .titlepdf{
+        margin: 0 10% !important
+    }
         .padrow{
             margin-top: 200px !important;
         }
@@ -323,12 +326,15 @@ transform: skewY(10deg);
             width: 100% !important;
         }
         .row1{
-            margin-top: 100px;
+            margin-top: 50px;
             margin-bottom: 400px;
         }
         .row2{
             margin-bottom: 1000px;
             
+        }
+        .row3{
+            padding-top: 100px;
         }
     }
 

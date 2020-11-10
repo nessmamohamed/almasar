@@ -450,7 +450,7 @@ const printpdf = (e) => {
               
               <div className='d-flex text-center ' style={{background: 'white'}} > 
                    <img className='ml-5' id='imgl'  width='200px' src={logo}/>
-        <h5 className=' my-auto ' style={{margin:  '0 20%'}}>{quest_ ? localStorage.getItem('language') === 'en' ? quest_.title : quest_.title_ar :''}</h5>
+        <h5 className=' my-auto titlepdf' style={{margin:  '0 20%'}}>{quest_ ? localStorage.getItem('language') === 'en' ? quest_.title : quest_.title_ar :''}</h5>
                  </div>
           
              <div style={{background: '#eceff1', paddingRight: '90px'}}>
@@ -459,7 +459,7 @@ const printpdf = (e) => {
 
              
 
-               <div className='row justify-content-center pt-3 '>
+               <div className='row justify-content-center  row3'>
                  <div className='card shadow my-auto mx-5 border-none' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>

@@ -45,9 +45,10 @@ class dashboard2 extends React.Component{
             return result.results[question] ===  answers_ar[4] || result.results[question] ===  answers[4]
         }) : 0
 
+        const total1 = results1.length + results2.length + results3.length + results4.length + results5.length
 
         const state1 = {
-            series: [results1.length, results2.length, results3.length, results4.length, results5.length],
+            series: [results1.length + ( this.props.results.length -total1 ), results2.length, results3.length, results4.length, results5.length],
             options: {
               plotOptions: {
                 pie: {
@@ -105,8 +106,10 @@ class dashboard2 extends React.Component{
 
 
 
+        const total2 = results1_2.length + results2_2.length + results3_2.length +results4_2.length + results5_2.length
+
         const state2 = {
-            series: [results1_2.length, results2_2.length, results3_2.length, results4_2.length, results5_2.length],
+            series: [results1_2.length + ( this.props.results.length -total2 ), results2_2.length, results3_2.length, results4_2.length, results5_2.length],
             
             options: {
               plotOptions: {
@@ -163,10 +166,11 @@ class dashboard2 extends React.Component{
             return result.results[question3] ===  answers_ar[4] || result.results[question3] ===  answers[4]
         }) : 0
 
+       const total3 = results1_3.length + results2_3.length + results3_3.length + results4_3.length + results5_3.length
 
         const state3 ={
 
-            series: [results1_3.length, results2_3.length, results3_3.length, results4_3.length, results5_3.length],
+            series: [results1_3.length + (this.props.results.length -total3 ), results2_3.length, results3_3.length, results4_3.length, results5_3.length],
             options: {
               plotOptions: {
                 pie: {
@@ -226,8 +230,10 @@ class dashboard2 extends React.Component{
         }) : 0
 
 
+        const total4 = results1_4.length + results2_4.length + results3_4.length + results4_4.length + results5_4.length
+
         const state4= {
-          series: [results1_4.length, results2_4.length, results3_4.length, results4_4.length, results5_4.length],
+          series: [results1_4.length + ( this.props.results.length - total4 ), results2_4.length, results3_4.length, results4_4.length, results5_4.length],
           options: {
             plotOptions: {
               pie: {
@@ -263,71 +269,72 @@ class dashboard2 extends React.Component{
         return(
             <div>
 
+        
              <div className = 'row justify-content-center mt-3 row2'>
-                <div className= ''>
-                <div className='card shadow ml-5 mt-2' style={{width: '400px', height: '100%'}} >
-                     <div className='card-body' >
-                     <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
-                         <div className='mixed-chart'>
-                             
-                             <Chart
-                             options={state1.options} series={state1.series} type="donut" height='200'/>
-                         </div>
-                     </div>
-                 </div>
-                </div>
-
-               
-           <div style={{width:'min-content'}}>
-           <div className='card shadow ml-5 mt-2' style={{width: '20%' , minWidth:' 400px',  height: '100%'}} >
-                     <div className='card-body'>
-                     <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
-                         <div className='mixed-chart'>
-                             
-                             <Chart
-                             options={state2.options} series={state2.series} type="pie" height='200'/>
-                         </div>
-                     </div>
-               
-               
-             </div>
-           </div>
-
-
-            <div style={{width:'min-content'}}>
-              
-            <div className='card shadow ml-5 mt-2' style={{width:' 400px',  height: '100%'}} >
-                     <div className='card-body'>
-                     <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
-                         <div className='mixed-chart'>
-                             
-                             <Chart
-                             options={state3.options} series={state3.series} type="pie" height='200' />
-                         </div>
-                     </div>
-                 </div>
-            </div>
-
-              
-
-                 
-                 <div className='card shadow ml-5 mt-2' style={{width: '20%' , minWidth:' 400px',  height: 'inherit'}} >
-                     <div className='card-body'>
-                     <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question4 : question_ar4}</h6>
-                         <div className='mixed-chart'>
-                             
-                             <Chart
-                             options={state4.options} series={state4.series} type="donut" height='200' />
-                         </div>
-                     </div>
-                 </div>
-               
-             
-
+             <div className= ''>
+             <div className='card shadow ml-5 mt-2' style={{width: '400px', height: '100%'}} >
+                  <div className='card-body' >
+                  <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
+                      <div className='mixed-chart'>
+                          
+                          <Chart
+                          options={state1.options} series={state1.series} type="donut" height='200'/>
+                      </div>
+                  </div>
+              </div>
              </div>
 
             
+        <div style={{width:'min-content'}}>
+        <div className='card shadow ml-5 mt-2' style={{width: '20%' , minWidth:' 400px',  height: '100%'}} >
+                  <div className='card-body'>
+                  <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
+                      <div className='mixed-chart'>
+                          
+                          <Chart
+                          options={state2.options} series={state2.series} type="pie" height='200'/>
+                      </div>
+                  </div>
+            
+            
+          </div>
+        </div>
 
+
+         <div style={{width:'min-content'}}>
+           
+         <div className='card shadow ml-5 mt-2' style={{width:' 400px',  height: '100%'}} >
+                  <div className='card-body'>
+                  <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
+                      <div className='mixed-chart'>
+                          
+                          <Chart
+                          options={state3.options} series={state3.series} type="pie" height='200' />
+                      </div>
+                  </div>
+              </div>
+         </div>
+
+           
+
+              
+              <div className='card shadow ml-5 mt-2' style={{width: '20%' , minWidth:' 400px',  height: 'inherit'}} >
+                  <div className='card-body'>
+                  <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question4 : question_ar4}</h6>
+                      <div className='mixed-chart'>
+                          
+                          <Chart
+                          options={state4.options} series={state4.series} type="donut" height='200' />
+                      </div>
+                  </div>
+              </div>
+            
+          
+
+          </div>
+
+         
+ 
 
             </div>
         )

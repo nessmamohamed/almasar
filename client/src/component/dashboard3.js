@@ -143,17 +143,13 @@ class dashboard3 extends React.Component{
 
         
 
-        console.log(results1_2,
-          results2_2 , 
-          results3_2, 
-          results4_2, 
-          results5_2)
+        const total2 = results1_2.length +  results2_2.length + results3_2.length +results4_2.length + results5_2.length
 
         //state2
     const state2 ={
        
       series: [{
-        data:[results1_2.length ,
+        data:[results1_2.length + (this.props.results.length  -  total2) ,
             results2_2.length, 
             results3_2.length, 
             results4_2.length, 

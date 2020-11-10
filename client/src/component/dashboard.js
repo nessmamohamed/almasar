@@ -450,7 +450,7 @@ const printpdf = (e) => {
               
               <div className='d-flex text-center ' style={{background: 'white'}} > 
                    <img className='ml-5' id='imgl'  width='200px' src={logo}/>
-        <h5 className='text-center mr-auto my-auto ' style={{marginLeft: '25%'}}>{quest_ ? localStorage.getItem('language') === 'en' ? quest_.title : quest_.title_ar :''}</h5>
+        <h5 className=' my-auto ' style={{margin:  '0 20%'}}>{quest_ ? localStorage.getItem('language') === 'en' ? quest_.title : quest_.title_ar :''}</h5>
                  </div>
           
              <div style={{background: '#eceff1', paddingRight: '90px'}}>

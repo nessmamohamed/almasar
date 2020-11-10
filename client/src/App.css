@@ -313,7 +313,7 @@ transform: skewY(10deg);
 
 @media (max-width: 1300px){
     .titlepdf{
-        margin: 0 10% !important
+        margin: auto 10% !important
     }
         .padrow{
             margin-top: 200px !important;

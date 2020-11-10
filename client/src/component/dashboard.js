@@ -459,7 +459,7 @@ const printpdf = (e) => {
 
              
 
-               <div className='row justify-content-center  row3'>
+               <div className='row justify-content-center pt-3 row3'>
                  <div className='card shadow my-auto mx-5 border-none' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>

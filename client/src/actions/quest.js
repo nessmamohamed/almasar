@@ -15,7 +15,7 @@ export const addQuest = (questions) => (dispatch, getState) => {
 
 export const getQuests = () => dispatch => {
    
-    axios.get('/quest')
+    axios.get('http://localhost:5000/quest')
     .then(res => 
         dispatch({
         type: GET_QUESTS,

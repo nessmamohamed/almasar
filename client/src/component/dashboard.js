@@ -41,9 +41,9 @@ class dashboard extends React.Component{
   componentDidMount() {
     
 
-//setTimeout(() => {
-//if(!this.props.auth.user){
- //window.location.href= '/admin'}}, 3000);
+setTimeout(() => {
+if(!this.props.auth.user){
+ window.location.href= '/admin'}}, 3000);
 
    this.visitors()
    
@@ -448,8 +448,9 @@ const printpdf = (e) => {
           <div>
             <div  id= 'charts2'>
               
-              <div className='mx-auto text-center ' style={{background: 'white'}} > 
-                   <img id='imgl'  width='200px' src={logo}/>
+              <div className='d-flex text-center ' style={{background: 'white'}} > 
+                   <img className='ml-5' id='imgl'  width='200px' src={logo}/>
+        <h5 className='text-center mr-auto my-auto ' style={{marginLeft: '25%'}}>{quest_ ? localStorage.getItem('language') === 'en' ? quest_.title : quest_.title_ar :''}</h5>
                  </div>
           
              <div style={{background: '#eceff1', paddingRight: '90px'}}>

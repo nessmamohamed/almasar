@@ -41,9 +41,9 @@ class dashboard extends React.Component{
   componentDidMount() {
     
 
-setTimeout(() => {
-if(!this.props.auth.user){
- window.location.href= '/admin'}}, 3000);
+//setTimeout(() => {
+//if(!this.props.auth.user){
+ //window.location.href= '/admin'}}, 3000);
 
    this.visitors()
    
@@ -390,13 +390,15 @@ const satisfied = merged.filter(data =>{
 
 
 
-const onPrint = (e) => {
+ const onPrint = (e) => {
   e.preventDefault()
 
  
   const page = document.body.innerHTML
   
   const printContent = document.getElementById('charts2').innerHTML
+
+  
   document.body.innerHTML = printContent
 
   setTimeout(() => {
@@ -443,7 +445,8 @@ const printpdf = (e) => {
 
 
         return(
-            <div id= 'charts2' >
+          <div>
+            <div  id= 'charts2'>
               
               <div className='mx-auto text-center ' style={{background: 'white'}} > 
                    <img id='imgl'  width='200px' src={logo}/>
@@ -548,7 +551,23 @@ const printpdf = (e) => {
 
               </div>
 
-             <Fade>
+     
+             </div>
+
+             <div className='footer'>
+            <p>All copyrights reserved 2020 
+            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '14px'}}/>
+
+            <a href='https://twitter.com/ConsultingMsar'>
+            <img src="https://img.icons8.com/fluent/48/000000/twitter.png" width='30' className='mr-2'/>
+            </a>
+                         <img src={icon} width='80'/>
+
+            </p>
+          </div>
+          </div>
+
+          <Fade>
              <div className= 'n-bar text-center pt-4' style={{display: !this.state.menu ? 'block' : 'none'}}>
                   <button onClick = {this.onClickBar} className='btn btn-light mx-auto' style={{background: 'none', border: 'none'}}>
                   <FontAwesomeIcon icon={faBars} color='white' style={{fontSize: '25px'}} />
@@ -659,20 +678,8 @@ const printpdf = (e) => {
          
                </div>
               </Fade>
-             </div>
 
-             <div className='footer'>
-            <p>All copyrights reserved 2020 
-            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '14px'}}/>
 
-            <a href='https://twitter.com/ConsultingMsar'>
-            <img src="https://img.icons8.com/fluent/48/000000/twitter.png" width='30' className='mr-2'/>
-            </a>
-                         <img src={icon} width='80'/>
-
-            </p>
-          </div>
-              
             </div>
         )
     }

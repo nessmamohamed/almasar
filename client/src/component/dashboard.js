@@ -443,15 +443,15 @@ const printpdf = (e) => {
 
 
         return(
-            <div  >
+            <div id= 'charts2' >
               
-              <div className='mx-auto text-center ' style={{background: 'white'}} id= 'charts2'> 
+              <div className='mx-auto text-center ' style={{background: 'white'}} > 
                    <img id='imgl'  width='200px' src={logo}/>
                  </div>
           
              <div style={{background: '#eceff1', paddingRight: '90px'}}>
 
-               <div id='charts' >
+               <div id='charts' style={{paddingBottom: '100px'}} >
 
              
 

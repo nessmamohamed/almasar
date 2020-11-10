@@ -23,6 +23,15 @@ import Excel from './excel'
 
 import html2pdf from 'html2pdf.js'
 
+import {faCopyright } from '@fortawesome/free-solid-svg-icons'
+
+
+import icon from './images/m-icon.png'
+
+import logo from './images/logo10.png'
+
+
+
 
 
 class dashboard extends React.Component{
@@ -32,11 +41,11 @@ class dashboard extends React.Component{
   componentDidMount() {
     
 
- setTimeout(() => {
-   if(!this.props.auth.user){
-    window.location.href= '/admin'}}, 3000);
+setTimeout(() => {
+if(!this.props.auth.user){
+ window.location.href= '/admin'}}, 3000);
 
-    this.visitors()
+   this.visitors()
    
   }
 
@@ -44,7 +53,8 @@ class dashboard extends React.Component{
     menu: false, 
     res: [], 
     ip: 0,
-    dataTotal: []
+    dataTotal: [],
+   
   }
 
 
@@ -108,15 +118,15 @@ class dashboard extends React.Component{
     
 
         const results1 = results ? results.filter(result => {
-            return result.results[question] ===  answers_ar[0] || result.results[question] ===  answers[0]
+            return result.results ? result.results[question] ===  answers_ar[0] || result.results[question] ===  answers[0] : 0
         }) : 0
 
         const results2 = results?  results.filter(result => {
-            return result.results[question] ===  answers_ar[1] || result.results[question] ===  answers[1]
+            return result.results ? result.results[question] ===  answers_ar[1] || result.results[question] ===  answers[1] : 0
         }):0
 
         const results3 = results ? results.filter(result => {
-            return result.results[question] ===  answers_ar[2] || result.results[question] ===  answers[2]
+            return result.results ? result.results[question] ===  answers_ar[2] || result.results[question] ===  answers[2] : 0
         }) : 0
 
 
@@ -222,7 +232,8 @@ class dashboard extends React.Component{
           options: {
             chart: {
               type: 'bar',
-              height: 350
+              height: 350,
+              
             },
             plotOptions:{
               bar: {
@@ -382,12 +393,16 @@ const satisfied = merged.filter(data =>{
 const onPrint = (e) => {
   e.preventDefault()
 
+ 
   const page = document.body.innerHTML
+  
   const printContent = document.getElementById('charts').innerHTML
   document.body.innerHTML = printContent
 
   setTimeout(() => {
     window.print()
+
+  
 
   document.body.innerHTML = page
   }, 3000);
@@ -400,9 +415,12 @@ const printpdf = (e) => {
  
   e.preventDefault()
 
-  const page = document.body.innerHTML
+
   const printContent = document.getElementById('charts').innerHTML
-  document.body.innerHTML = printContent
+  
+  
+
+
 
   var opt = {
     margin: 0,
@@ -417,7 +435,7 @@ const printpdf = (e) => {
 };
 
   html2pdf().from(printContent).set(opt).save();
-  document.body.innerHTML = page
+ 
 
 }
 
@@ -425,13 +443,17 @@ const printpdf = (e) => {
 
 
         return(
-            <div style={{background: '#eceff1', paddingRight: '90px'}} >
+            <div  >
               
-             
+              <div className='mx-auto text-center ' style={{background: 'white'}}> 
+                   <img id='imgl'  width='200px' src={logo}/>
+                 </div>
           
-             <div>
+             <div style={{background: '#eceff1', paddingRight: '90px'}}>
 
-               <div id='charts'>
+               <div id='charts' >
+
+             
 
                <div className='row justify-content-center pt-3 '>
                  <div className='card shadow my-auto mx-5 border-none' > 
@@ -638,6 +660,18 @@ const printpdf = (e) => {
                </div>
               </Fade>
              </div>
+
+             <div className='footer'>
+            <p>All copyrights reserved 2020 
+            <FontAwesomeIcon icon={faCopyright} className='my-auto mx-2 ' color='black' style={{fontSize: '14px'}}/>
+
+            <a href='https://twitter.com/ConsultingMsar'>
+            <img src="https://img.icons8.com/fluent/48/000000/twitter.png" width='30' className='mr-2'/>
+            </a>
+                         <img src={icon} width='80'/>
+
+            </p>
+          </div>
               
             </div>
         )

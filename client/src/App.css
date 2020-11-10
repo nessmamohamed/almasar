@@ -6,6 +6,9 @@
 
 }
 
+body{
+    font-family: DejaVu Sans, sans-serif; 
+}
 
 .div2{
     position: absolute;
@@ -229,9 +232,6 @@ a:hover{
     fill: rgb(24, 160, 44)   !important
 }
 
-.apexcharts-title-text{
-    display: none
-}
 
 .apexcharts-subtitle-text{
     display: none
@@ -299,6 +299,7 @@ height: 500px;
 bottom: -200px;
 transform: skewY(10deg);
 }
+
 
 .div6{
     position: absolute;

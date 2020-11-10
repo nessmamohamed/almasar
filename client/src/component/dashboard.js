@@ -180,7 +180,7 @@ if(!this.props.auth.user){
     } 
    
 
-    console.log(results1.length + results2.length + results3.length)
+   
 
 
             //second chart

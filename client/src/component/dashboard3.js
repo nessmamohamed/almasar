@@ -43,11 +43,11 @@ class dashboard3 extends React.Component{
 
      
         const results4 = results?  results.filter(result => {
-            return result.results[question] ===  answers_ar[1] || result.results[question] ===  answers[1]
+            return result.results[question] ===  answers_ar[3] || result.results[question] ===  answers[3]
         }):0
 
         const results5 = results ? results.filter(result => {
-            return result.results[question] ===  answers_ar[2] || result.results[question] ===  answers[2]
+            return result.results[question] ===  answers_ar[4] || result.results[question] ===  answers[4]
         }) : 0
 
 
@@ -119,12 +119,13 @@ class dashboard3 extends React.Component{
         //results 
 
         
+        
         const results1_2 = results ? results.filter(result => {
-            return result.results[question2] ===  answers_ar2[0] || result.results[question2] ===  answers2[0]
+            return result.results[question2] ===  answers_ar2[0] || result.results[question2] ===  answers2[0] 
         }) : 0
 
         const results2_2 = results?  results.filter(result => {
-            return result.results[question2] ===  answers_ar2[1] || result.results[question2] ===  answers2[1]
+            return result.results[question2] ===  answers_ar2[1] || result.results[question2] ===  answers2[1] 
         }):0
 
         const results3_2 = results ? results.filter(result => {
@@ -141,6 +142,12 @@ class dashboard3 extends React.Component{
         }):0
 
         
+
+        console.log(results1_2,
+          results2_2 , 
+          results3_2, 
+          results4_2, 
+          results5_2)
 
         //state2
     const state2 ={

@@ -74,11 +74,25 @@ class dashboard3 extends React.Component{
             },
             plotOptions:{
               bar: {
-                horizontal: false
+                horizontal: false,
+                dataLabels: {
+                  
+                  position: 'top'
+                }
               }
             },
             dataLabels: {
-              enabled: false
+              enabled: true,
+              formatter:  (val, opts) => {
+               let total = results1.length + results2.length + results3.length + results4.length + results5.length
+                return Math.floor(val * 100 / total) + '%'
+            },
+              style: {
+                colors: ['#333']
+            },
+            offsetY: -30
+           
+            
             },
             xaxis: {
               categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
@@ -146,11 +160,23 @@ class dashboard3 extends React.Component{
         },
         plotOptions:{
           bar: {
-            horizontal: false
+            horizontal: false,
+            dataLabels: {
+                  
+              position: 'top'
+            }
           }
         },
         dataLabels: {
-          enabled: false
+          enabled: true,
+          formatter:  (val, opts) => {
+           let total = results1_2.length + results2_2.length + results3_2.length + results4_2.length + results5_2.length
+            return Math.floor(val * 100 / total) + '%'
+        },
+          style: {
+            colors: ['#333']
+        },
+        offsetY: -30
         },
         xaxis: {
           categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
@@ -165,23 +191,22 @@ class dashboard3 extends React.Component{
    
 
         return(
-            <div style={{background: '#eceff1'}} >
+            <div style={{background: '#eceff1'}} className='row3' >
               <div className='row justify-content-center pt-3 padrow'>
-              <div className='mr-5 mt-3'>
+              <div className='mr-5 mt-3 break4'>
                <div className= 'card shadow my-auto ' style={{width: '700px'}} >
                <div className="card-body text-center " >
         
                <h6>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
+         {results1.length > 0 ? 
           <div className="mixed-chart">
 
-         
-
-            <Chart
-              options={state1.options}
-              series={state1.series}
-              type="bar" height={250}
-            />
-          </div>
+          <Chart
+            options={state1.options}
+            series={state1.series}
+            type="bar" height={250}
+          />
+        </div> : ''}
         </div>
         </div>
                </div>
@@ -191,17 +216,15 @@ class dashboard3 extends React.Component{
                        <div className='card-body text-center '>
                        <h6>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
 
+         {results1.length > 0 ? 
                        <div className="mixed-chart">
-
-         
-
-<Chart
-  options={state2.options}
-  series={state2.series}
-  type="bar"
-  height='250'
-/>
-</div>
+                       <Chart
+                         options={state2.options}
+                         series={state2.series}
+                         type="bar"
+                         height='250'
+                       />
+                       </div> : ''}
                        </div>
                    </div>
                </div>

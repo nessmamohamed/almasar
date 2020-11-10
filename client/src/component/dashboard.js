@@ -21,6 +21,8 @@ import axios from 'axios'
 
 import Excel from './excel'
 
+import html2pdf from 'html2pdf.js'
+
 
 
 class dashboard extends React.Component{
@@ -32,7 +34,7 @@ class dashboard extends React.Component{
 
  setTimeout(() => {
    if(!this.props.auth.user){
-      window.location.href= '/admin'}}, 3000);
+    window.location.href= '/admin'}}, 3000);
 
     this.visitors()
    
@@ -121,8 +123,7 @@ class dashboard extends React.Component{
 
         
         
-       console.log(results1.length, results2.length, 2)
-     
+    
 
         
        const state1 ={
@@ -139,20 +140,37 @@ class dashboard extends React.Component{
             },
             plotOptions:{
               bar: {
-                horizontal: false
+                horizontal: false,
+                dataLabels: {
+                  
+                  position: 'top'
+                }
               }
             },
             dataLabels: {
-              enabled: false
+               
+              enabled: true,
+              formatter:  (val, opts) => {
+               let total = results1.length + results2.length + results3.length 
+                return Math.floor(val * 100 / total) + '%'
+            },
+              style: {
+                colors: ['#333']
+            },
+            offsetY: -30
             },
             xaxis: {
               categories: localStorage.getItem('language') === 'en' ? [...answers] : [...answers_ar],
             }
+        
             
           }
 
         
-    }
+    } 
+   
+
+    console.log(results1.length + results2.length + results3.length)
 
 
             //second chart
@@ -208,11 +226,24 @@ class dashboard extends React.Component{
             },
             plotOptions:{
               bar: {
-                horizontal: true
+                horizontal: true,
+                dataLabels: {
+                  
+                  position: 'top'
+                }
               }
             },
             dataLabels: {
-              enabled: false
+              enabled: true,
+              formatter:  (val, opts) => {
+               let total = results1_2.length + results2_2.length + results3_2.length + results4_2.length + results5_2.length
+                return Math.floor(val * 100 / total) + '%'
+            },
+              style: {
+                colors: ['#333']
+            },
+            offsetX: 40
+           
             },
             xaxis: {
               categories: localStorage.getItem('language') === 'en' ? [...answers2] : [...answers_ar2],
@@ -273,11 +304,23 @@ class dashboard extends React.Component{
           },
           plotOptions:{
             bar: {
-              horizontal: false
+              horizontal: false,
+              dataLabels: {
+                  
+                position: 'top'
+              }
             }
           },
           dataLabels: {
-            enabled: false
+            enabled: true,
+            formatter:  (val, opts) => {
+             let total = results1_3.length + results2_3.length + results3_3.length + results4_3.length + results5_3.length
+              return Math.floor(val * 100 / total) + '%'
+          },
+            style: {
+              colors: ['#333']
+          },
+          offsetY: -30
           },
           xaxis: {
             categories: localStorage.getItem('language') === 'en' ? [...answers3] : [...answers_ar3],
@@ -347,9 +390,34 @@ const onPrint = (e) => {
     window.print()
 
   document.body.innerHTML = page
-  }, 5000);
+  }, 3000);
   
 
+
+}
+
+const printpdf = (e) => {
+ 
+  e.preventDefault()
+
+  const page = document.body.innerHTML
+  const printContent = document.getElementById('charts').innerHTML
+  document.body.innerHTML = printContent
+
+  var opt = {
+    margin: 0,
+    filename: 'myfile.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    
+    
+
+};
+
+  html2pdf().from(printContent).set(opt).save();
+  document.body.innerHTML = page
 
 }
 
@@ -365,7 +433,7 @@ const onPrint = (e) => {
 
                <div id='charts'>
 
-               <div className='row justify-content-center pt-3'>
+               <div className='row justify-content-center pt-3 '>
                  <div className='card shadow my-auto mx-5 border-none' > 
                  <div className='card-body' style={{background: 'linear-gradient(360deg, rgb(0 128 69 / 22%), transparent)'}}>
                    <div className='d-flex'>
@@ -397,35 +465,35 @@ const onPrint = (e) => {
 
 
                </div>
-                   <div className='row justify-content-center pt-3' >
-              <div className=''>
-               <div className= 'card shadow my-auto ' style={{height: '100%', width: '350px'}}>
+                   <div className='row justify-content-center pt-3 row1' >
+              <div className='mt-2 mr-md-5 chart1'>
+               <div className= 'card shadow my-auto cardchart ' style={{height: '100%', width: '350px'}}>
                <div className="card-body text-center " >
         
                <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question : question_ar}</h6>
+        {results1.length > 0 ? 
           <div className="mixed-chart">
 
          
 
-            <Chart
-              options={state1.options}
-              series={state1.series}
-              type="bar"
-              height='250'
-            />
-          </div>
+          <Chart
+            options={state1.options}
+            series={state1.series}
+            type="bar"
+            height='250'
+          />
+        </div> : ''}
         </div>
         </div>
                </div>
 
-               <div className='ml-md-5  'style={{width: '30%' , minWidth:'fit-content'}}>
-                   <div className='card shadow  ' style={{height: '100%'}}>
+               <div className='mr-md-5  mt-2 chart1  break1'style={{width: '30%' , minWidth:'fit-content'}}>
+                   <div className='card shadow my-auto cardchart ' style={{height: '100%'}}>
                        <div className='card-body text-center '>
                        <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question2 : question_ar2}</h6>
+{results1.length > 0 ? 
 
-                       <div className="mixed-chart">
-
-         
+<div className="mixed-chart">
 
 <Chart
   options={state2.options}
@@ -433,20 +501,21 @@ const onPrint = (e) => {
   type="bar"
   height='250'
 />
-</div>
+</div> : ''}
                        </div>
                    </div>
                </div>
 
-               <div className= 'ml-md-5 ' style={{width: '30%' , minWidth:'fit-content'}}>
-                   <div className='card shadow  ' style={{height: '100%', width: '700px'}}>
+               <div className= 'mr-md-5 mt-2 chart1 break2' style={{width: '30%' , minWidth:'fit-content'}}>
+                   <div className='card shadow my-auto cardchart' style={{height: '100%', width: '700px'}}>
                        <div className='card-body text-center '>
                        <h6 className='text-center'>{localStorage.getItem('language') === 'en' ? question3 : question_ar3}</h6>
+                           {results1.length > 0 ? 
                            <div className='mixed-chart'>
-                               <Chart
-                               options={state3.options} series={state3.series} type="bar" 
-                               height='250'/>
-                           </div>
+                           <Chart
+                           options={state3.options} series={state3.series} type="bar" 
+                           height='250'/>
+                       </div> : ''}
                        </div>
                    </div>
                </div>
@@ -535,6 +604,12 @@ const onPrint = (e) => {
        <Excel/>
 
    <br/>
+
+   <div>
+     <button onClick={printpdf} className='btn btn-light text-light' style={{background: 'none', border: 'none'}}>Download pdf</button>
+     </div>
+
+     <br/>
            </div>
 
            : '' : ''

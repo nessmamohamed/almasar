@@ -35,37 +35,47 @@ class excel extends React.Component{
         
             {
 
+                let reasons = {}
+
                const ress = row.reasons.map(res => {
-                   return Object.values(res)
+                   return reasons = {...reasons , ...res}
                })
                
-               const ress2 = [...Object.values(ress)]
-           
+             
 
                const data =[
                    row.quser.name,
                    row.quser.Cname,
                    row.quser.phone,
                 row.results[question[0]],
+                reasons[question[0]] || '',
                 row.results[question[1]],
+                reasons[question[1]] || '',
                 row.results[question[2]],
+                reasons[question[2]] || '',
                 row.results[question[3]],
+                reasons[question[3]] || '',
                 row.results[question[4]],
+                reasons[question[4]] || "",
                 row.results[question[5]],
+                reasons[question[5]] || '',
                 row.results[question[6]],
+                reasons[question[6]] || '',
                 row.results[question[7]],
+                reasons[question[7]] || '',
                 row.results[question[8]],
+                reasons[question[8]]|| '',
                 row.results[question[9]] || '',
-                '',
-                ress2[0] || '',
-                ress2[1] || '',
-                ress2[2] || '',
-                ress2[3] || '',
-                ress2[4] || "",
-                ress2[5] || '',
-                ress2[6] || '',
-                ress2[7] || '',
-                ress2[8] || '',
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
           
                ]
 
@@ -113,16 +123,27 @@ class excel extends React.Component{
             'الاسم', 
             'الشركة', 
             'الرقم',
-            ...this.state.question_ar,
-            "",
+            this.state.question_ar[0],
             'تعليق',
+            this.state.question_ar[1],
             'تعليق',
+            this.state.question_ar[2],
             'تعليق',
+            this.state.question_ar[3],
             'تعليق',
+            this.state.question_ar[4],
             'تعليق',
+            this.state.question_ar[5],
             'تعليق',
+            this.state.question_ar[6],
             'تعليق',
-            'تعليق'
+            this.state.question_ar[7],
+            'تعليق',
+            this.state.question_ar[8],
+            'تعليق',
+            this.state.question_ar[9],
+            'تعليق',
+
 
             
         ]
@@ -159,8 +180,8 @@ class excel extends React.Component{
 
         
       
-
-        console.log(csvData)
+        
+     
 
         return(
             <div>

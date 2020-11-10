@@ -316,6 +316,21 @@ transform: skewY(10deg);
         .padrow{
             margin-top: 200px !important;
         }
+        .chart1{
+            width: 700px !important;
+            text-align: -webkit-center;
+        }
+        .card.shadow.my-auto.cardchart {
+            width: 100% !important;
+        }
+        .row1{
+            margin-top: 100px;
+            margin-bottom: 400px;
+        }
+        .row2{
+            margin-bottom: 1000px;
+            
+        }
     }
 
  .exportCSV{

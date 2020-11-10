@@ -263,7 +263,7 @@ class dashboard2 extends React.Component{
         return(
             <div>
 
-             <div className = 'row justify-content-center mt-3'>
+             <div className = 'row justify-content-center mt-3 row2'>
                 <div className= ''>
                 <div className='card shadow ml-5 mt-2' style={{width: '400px', height: '100%'}} >
                      <div className='card-body' >

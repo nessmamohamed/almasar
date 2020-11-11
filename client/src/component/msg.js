@@ -20,7 +20,7 @@ export default class Msg extends React.Component{
                             <img src = {logo} width='200'/>
                         {localStorage.getItem('language') !== 'en' ? 
                         <div className= 'mt-4'>
-                            <h6>نشكر لكم المشاركة في هذا الإستبيان و سوف نأخذ بعين الإعتبار جميع الملاحظات و الإقتراحات في تحسين خدماتنا مستقبلا </h6>
+                            <h6>انتهت المدة المحددة للاستبيان </h6>
                         <h6 >اذا كان لديك أي إستفسار أو ملاحظات بخصوص هذا الإستبيان ، الرجاء التواصل على العنوان التالي :</h6>
                         
                         <p className='text-info'>مسار للإستشارات الإدارية</p>
@@ -33,7 +33,7 @@ export default class Msg extends React.Component{
                         <p className='text-info'>info@msarconlt.com</p>
                         <p className='text-info'>@ConsultingMsar</p>
                         </div>: <div>
-                        <h6> We thank you for participating in this survey, and we will take into consideration all comments and suggestions in improving our services in the future </h6>                     
+                        <h6> The period for the questionnaire has expired </h6>                     
                         <h6> If you have any questions or comments regarding this questionnaire, please contact the following address: </h6>
                        
                          <p className='text-info'> Masar Management Consulting </p>                       

@@ -24,6 +24,8 @@ class Quest extends React.Component{
         const id = params.get('id')
 
         this.props.getQuest(id)
+
+        window.location.href = '/msg'
     }
 
     state =  {
